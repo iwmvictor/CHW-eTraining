@@ -1,0 +1,110 @@
+@import "./variable";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+
+.dark-mode {
+  --primary-color: #{$d-primary-color};
+  --secondary-color: #{$d-secondary-color};
+  --background-color: #{$d-background-color};
+  --surface-color: #{$d-surface-color};
+  --text-color: #{$d-text-color};
+  --text-muted: #{$d-text-muted};
+  --border-color: #{$d-border-color};
+  --input-bg: #{$d-input-bg};
+  --btn-bg: #{$d-btn-bg};
+  --btn-text: #{$d-btn-text};
+  --hover-color: #{$d-hover-color};
+  --active-color: #{$d-active-color};
+}
+
+.light-mode {
+  --primary-color: #{$l-primary-color};
+  --secondary-color: #{$l-secondary-color};
+  --background-color: #{$l-background-color};
+  --surface-color: #{$l-surface-color};
+  --text-color: #{$l-text-color};
+  --text-muted: #{$l-text-muted};
+  --border-color: #{$l-border-color};
+  --input-bg: #{$l-input-bg};
+  --btn-bg: #{$l-btn-bg};
+  --btn-text: #{$l-btn-text};
+  --hover-color: #{$l-hover-color};
+  --active-color: #{$l-active-color};
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color $transition, color $transition;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $font-bold;
+}
+
+p {
+  font-weight: $font-regular;
+}
+
+input,
+textarea,
+select,
+button {
+  display: flex;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: $font-regular;
+  background: transparent;
+}
+
+li {
+  list-style: none;
+  transition: $transition;
+}
+
+a {
+  font-size: 1rem;
+  text-decoration: none;
+  transition: $transition;
+}
+
+img,
+video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: $transition;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// REUSABLE CSS
+.container {
+  width: 85%;
+  margin: 0 auto;
+  max-width: 1200px;
+  position: relative;
+  transition: $transition;
+}

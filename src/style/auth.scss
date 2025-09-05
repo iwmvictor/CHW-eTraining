@@ -1,0 +1,372 @@
+$primary-color: #4d81d2;
+$secondary-color: #073e92;
+$light-color: #cccccc;
+$white-color: #ffffff;
+$dark-color: #333333;
+$black-color: #000000;
+
+$transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
+
+.auth {
+  width: 100%;
+  position: relative;
+  background: $white-color;
+
+  .sidebar {
+    width: 100%;
+    max-width: 33rem;
+    position: fixed;
+    min-height: 100vh;
+    background: $primary-color;
+    top: 0;
+    left: 0;
+    z-index: 9;
+
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+
+    .content {
+      width: 100%;
+      padding: 3rem 0;
+      position: relative;
+      gap: 3rem;
+      display: flex;
+      flex-direction: column;
+
+      .logo {
+        display: flex;
+
+        a {
+          font-size: 1.5rem;
+          font-weight: 500;
+          color: $white-color;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+
+      h2 {
+        font-size: 32px;
+        font-weight: bold;
+        color: $white-color;
+      }
+
+      p {
+        font-size: 16px;
+        margin-top: 0.6rem;
+        font-weight: normal;
+        color: $white-color;
+      }
+    }
+
+    @media (max-width: 1060px) {
+      max-width: 20rem;
+    }
+    @media (max-width: 800px) {
+      display: none;
+    }
+  }
+
+  .main {
+    width: calc(100% - 33rem);
+    margin-left: 33rem;
+    position: relative;
+    background: $white-color;
+
+    @media (max-width: 1060px) {
+      margin-left: 20rem;
+      width: calc(100% - 20rem);
+    }
+    @media (max-width: 800px) {
+      margin: 0;
+      width: 100%;
+    }
+
+    .content {
+      width: 100%;
+      position: relative;
+      gap: 3rem;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      .log {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+
+        .login {
+          gap: 0.4rem;
+          display: flex;
+          flex-wrap: wrap;
+          padding: 2rem 0;
+          align-items: center;
+        }
+      }
+
+      .form {
+        gap: 2rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .form-title {
+          gap: 0.3rem;
+          display: flex;
+          text-align: center;
+          flex-direction: column;
+
+          h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: $black-color;
+
+            @media (max-width: 500px) {
+              font-size: 26px;
+            }
+          }
+
+          p {
+            font-size: 16px;
+            color: $dark-color;
+
+            @media (max-width: 500px) {
+              font-size: 14px;
+            }
+          }
+        }
+
+        form {
+          gap: 1rem;
+          display: flex;
+          flex-direction: column;
+
+          .input-group {
+            gap: 1rem;
+            display: flex;
+            position: relative;
+            align-items: stretch;
+
+            .input {
+              flex: 1;
+              position: relative;
+
+              input,
+              select {
+                width: 100%;
+                height: 3rem;
+                font-size: 1rem;
+                font-weight: 500;
+                border-radius: 8px;
+                position: relative;
+                color: $dark-color;
+                padding: 0 1rem;
+                z-index: 1;
+                background: transparent;
+                box-shadow: 0 0 0 1px $primary-color;
+                transition: all $transition;
+
+                &:active,
+                &:focus {
+                  color: $primary-color;
+                  box-shadow: 0 0 1px 2px $primary-color;
+                }
+              }
+
+              label {
+                position: absolute;
+                top: 50%;
+                left: 1rem;
+                z-index: 0;
+                color: $light-color;
+                transform: translateY(-50%);
+              }
+
+              select + label {
+                display: none;
+              }
+
+              input:focus + label,
+              input:valid + label,
+              select:focus + label,
+              select:valid + label {
+                top: 0.06rem;
+                font-size: 9px;
+                transform: none;
+                font-size: 0.75rem;
+              }
+            }
+
+            @media (max-width: 500px) {
+              flex-direction: column;
+
+              .input {
+                width: 100%;
+                flex: auto;
+              }
+            }
+          }
+
+          .button {
+            display: flex;
+            margin-top: 2rem;
+            align-items: center;
+            justify-content: center;
+
+            button {
+              font-size: 16px;
+              font-weight: 500;
+              position: relative;
+              padding: 1rem 2rem;
+              color: $white-color;
+              border-radius: 16px;
+              transition: $transition;
+              background: $primary-color;
+
+              &:hover {
+                cursor: pointer;
+                background: $secondary-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Register
+  .register {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+
+    // .main
+  }
+
+  // Login
+  .login {
+    width: 100%;
+    position: relative;
+
+    .main {
+      position: relative;
+
+      .container {
+        position: relative;
+      }
+
+      .content {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .form {
+          width: 100%;
+
+          .form-title {
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            .div {
+              gap: 0.4rem;
+              display: flex;
+              align-items: center;
+            }
+          }
+
+          form {
+            width: 100%;
+            max-width: 450px;
+
+            .div {
+              margin-top: 1rem;
+              gap: 1rem;
+              display: flex;
+              flex-wrap: wrap;
+              align-items: center;
+              justify-content: space-between;
+
+              .remember {
+                gap: 0.6rem;
+                display: flex;
+                align-items: center;
+
+                input {
+                  position: relative;
+                  height: 1rem;
+                }
+              }
+
+              a {
+                color: $primary-color;
+
+                &:hover {
+                  color: $secondary-color;
+                }
+              }
+            }
+          }
+        }
+
+        .back {
+          display: flex;
+
+          a {
+            gap: 0.3rem;
+            display: flex;
+            padding: 1rem 1.2rem;
+            border-radius: 1rem;
+            align-items: center;
+
+            &:hover {
+              gap: 0.6rem;
+              color: $secondary-color;
+              background: $light-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Reset
+  .reset {
+    .main {
+      form {
+        .code-group {
+          display: flex;
+          justify-content: center;
+          gap: 0.75rem;
+          margin-top: 1rem;
+
+          .code-input {
+            width: 3rem;
+            height: 3.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+            outline: none;
+            color: $dark-color;
+            box-shadow: 0 0 0 1px $primary-color;
+
+            &:focus,
+            &:active {
+              color: $primary-color;
+              box-shadow: 0 0 1px 2px $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
