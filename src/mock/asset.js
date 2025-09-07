@@ -10,9 +10,12 @@ import placeholderImg from "/images/img/placeholder.svg";
 const coursethumbnail =
   "https://malariatraining.org/wp-content/uploads/2022/01/banner-malaria-course-01-1-1024x518.jpg";
 
+import certificate from "/images/img/certificate.svg";
+
 export const assets = {
   playstore,
   userProfile,
+  certificate,
   placeholderImg,
   userProfileCover,
   coursethumbnail,

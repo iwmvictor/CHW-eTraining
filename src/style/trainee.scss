@@ -1043,4 +1043,451 @@ span {
       }
     }
   }
+
+  .student-quizzes-page {
+    width: 100%;
+    padding: 2rem 0;
+    position: relative;
+
+    .content {
+      width: 100%;
+      border-radius: 8px;
+      color: $dark-color;
+      padding: 1.5rem 1rem;
+      background: $white-color;
+      box-shadow: 0 0 0 1px rgba(#073e92, 0.2);
+
+      gap: 1rem;
+      display: flex;
+      flex-direction: column;
+
+      .titles {
+        gap: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+
+        h2 {
+          font-size: 32px;
+          font-weight: 600;
+          color: $black-color;
+        }
+
+        .action {
+          gap: 1rem;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+
+          .search {
+            width: 100%;
+            max-width: 240px;
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            input {
+              width: 100%;
+              height: 2.6rem;
+              font-size: 1rem;
+              border-radius: 8px;
+              position: relative;
+              background: $white-color;
+              box-shadow: 0 0 1px 1px rgba(#073e92, 0.42);
+              padding: 0 2.2rem;
+            }
+
+            .icon {
+              position: absolute;
+              font-size: 1.2rem;
+              padding: 0.3rem;
+              top: 50%;
+              z-index: 1;
+              transform: translateY(-50%);
+
+              &.search-icon {
+                left: 0.3rem;
+                opacity: 0.3;
+              }
+
+              &.filter {
+                right: 0;
+                width: 2.4rem;
+                height: 2.6rem;
+                background: #f5f5f5;
+                border-radius: 0 8px 8px 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+            }
+          }
+
+          .export {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            max-height: 2.5rem;
+            border-radius: 8px;
+            color: $primary-color;
+            transition: $transition;
+            box-shadow: 0 0 1px 1px rgba(#073e92, 0.42);
+
+            &:hover {
+              box-shadow: 0 0 1px 2px rgba(#073e92, 0.2);
+              background: $primary-color;
+              color: $white-color;
+              cursor: pointer;
+            }
+          }
+
+          .new {
+            gap: 0.3rem;
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            max-height: 2.5rem;
+            border-radius: 8px;
+            color: $white-color;
+            transition: $transition;
+            background: $primary-color;
+
+            &:hover {
+              box-shadow: 0 0 1px 2px rgba(#073e92, 0.2);
+              background: $secondary-color;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .tabs {
+        width: 100%;
+        margin: 1rem 0;
+        padding: 0 1rem;
+        border-bottom: 1px solid rgba(#073e92, 0.2);
+        gap: 1rem;
+        display: flex;
+        align-items: center;
+
+        background: $white-color;
+        position: sticky;
+        z-index: 999999;
+        top: 4.2rem;
+        left: 0;
+
+        li {
+          display: flex;
+          position: relative;
+          padding: 1rem 0;
+          font-size: 1rem;
+          font-weight: 500;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 0.1rem;
+            background: $primary-color;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 1s ease-in-out;
+          }
+
+          &:hover,
+          &.active {
+            color: $primary-color;
+            cursor: pointer;
+
+            &::before {
+              transform: scaleX(1);
+              transform-origin: left;
+            }
+          }
+        }
+      }
+
+      .table {
+        width: 100%;
+        position: relative;
+
+        .tr {
+          display: grid;
+          align-items: center;
+          grid-template-columns: 2fr 1fr 1fr 1fr 0.8fr 1.4fr;
+
+          &.th {
+            opacity: 0.4;
+            font-weight: 500;
+            color: $black-color;
+            padding: 0.2rem 0;
+
+            .c-name,
+            .c-phone,
+            .c-district,
+            .c-courses,
+            .c-progress,
+            .c-action {
+              gap: 0.2rem;
+              display: flex;
+              font-size: 1rem;
+              align-items: center;
+            }
+          }
+
+          &.td {
+            font-size: 1rem;
+            color: $dark-color;
+            padding: 0.6rem 0;
+            transition: $transition;
+
+            span {
+              display: inline-block;
+              //   width: 250px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+
+            .c-status {
+              color: $secondary-color;
+              font-size: 0.7rem;
+            }
+
+            &:hover {
+              background: #f5f5f5;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .dots-wrapper {
+        position: relative;
+      }
+
+      .menu {
+        position: absolute;
+        top: 25px;
+        right: 0;
+        background: white;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+
+        div {
+          padding: 8px 12px;
+          cursor: pointer;
+
+          &:hover {
+            background: #f2f2f2;
+          }
+        }
+      }
+
+      .pagination {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+
+        button {
+          padding: 6px 12px;
+          border: none;
+          cursor: pointer;
+          border-radius: 8px;
+          background: #f5f5f5;
+
+          &.active {
+            background: #4285f4;
+            color: white;
+          }
+
+          &:disabled {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+
+  .student-get-certified {
+    width: 100%;
+    padding: 1rem 0;
+    position: relative;
+    background: #f5f5f5;
+
+    .page-nav {
+      padding: 1rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      background: $white-color;
+      box-shadow: 0 0 0 1px rgba(#073e92, 0.2);
+      gap: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .back {
+        display: flex;
+
+        button {
+          gap: 0.6rem;
+          display: flex;
+          align-items: center;
+          color: $primary-color;
+          transition: $transition;
+
+          span {
+            padding: 0.6rem 0;
+
+            &:first-child {
+              padding: 0.6rem;
+              border-radius: 8px;
+              transition: $transition;
+              box-shadow: 0 0 0 1px rgba(#073e92, 0.2);
+            }
+          }
+
+          &:hover {
+            span {
+              padding: 0.6rem 0;
+              box-shadow: none;
+            }
+
+            cursor: pointer;
+            padding: 0 0.6rem;
+            border-radius: 8px;
+            box-shadow: 0 0 0 1px rgba(#073e92, 0.2);
+          }
+        }
+      }
+
+      .act {
+        gap: 1rem;
+        display: flex;
+        align-items: center;
+
+        button {
+          &.share {
+            display: flex;
+            padding: 0.8rem;
+            cursor: pointer;
+            border-radius: 8px;
+            align-items: center;
+            color: $secondary-color;
+            justify-content: center;
+            transition: $transition;
+            box-shadow: 0 0 0 1px rgba(#073e92, 0.2);
+
+            &:hover {
+              background: $primary-color;
+              color: $white-color;
+            }
+          }
+
+          &.download {
+            display: inline-block;
+            position: relative;
+            padding: 0.8rem 1rem;
+            color: $white-color;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            z-index: 1;
+            overflow: hidden;
+            border-radius: 8px;
+            background: linear-gradient(
+              45deg,
+              $primary-color,
+              $primary-color,
+              $secondary-color
+            );
+            transition: $transition;
+            background-size: 300% 300%;
+            animation: shine 3s linear infinite;
+            gap: 0.4rem;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+              background: $secondary-color;
+            }
+          }
+        }
+      }
+    }
+
+    .share-options {
+      position: absolute;
+      top: 4.86rem;
+      right: 5rem;
+      z-index: 1;
+      padding: 2rem;
+      width: fit-content;
+      background: $white-color;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+
+      gap: 0.4rem;
+      display: inline-flex;
+      flex-direction: column;
+
+      button,
+      a {
+        font-size: 0.8rem;
+        color: $dark-color;
+        font-weight: 500;
+        transition: $transition;
+
+        &:hover {
+          color: $primary-color;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .content {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 8px;
+      background: $white-color;
+      box-shadow: 0 0 0 1px rgba(#073e92, 0.2);
+
+      .cert-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          pointer-events: none;
+          user-select: none;
+        }
+      }
+    }
+  }
+}
+
+// shiny button
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

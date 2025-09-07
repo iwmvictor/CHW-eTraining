@@ -70,18 +70,18 @@ const App = () => {
           <Route path="trainee" element={<StudentLayout />}>
             <Route index element={<StudentOverview />} />
             <Route path="course/:path" element={<StudentCoursePage />} />
-            <Route
+            {/* <Route
               path="course/:path/learning"
               element={<StudentCoursePage />}
-            />
-            <Route
+            /> */}
+            {/* <Route
               path="course/:path/learning/completed"
               element={<StudentLearningComplete />}
-            />
-            <Route path="live/:path" element={<StudentLiveSession />} />
-            <Route path="calendar" element={<StudentCalendarPage />} />
+            /> */}
+            {/* <Route path="live/:path" element={<StudentLiveSession />} /> */}
+            {/* <Route path="calendar" element={<StudentCalendarPage />} /> */}
             <Route path="assessments" element={<StudentQuizzes />} />
-            <Route path="assessment/:path" element={<StudentQuizPage />} />
+            {/* <Route path="assessment/:path" element={<StudentQuizPage />} /> */}
             <Route
               path="course/certificate/:path"
               element={<StudentCertificatePage />}

@@ -6,7 +6,6 @@ import {
   LuSettings2,
 } from "react-icons/lu";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import "./../style/trainer.scss";
 
 const students = [
