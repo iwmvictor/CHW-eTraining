@@ -6,3 +6,12 @@ export const formatPhoneNumber = (phone) => {
   }
   return phone; // fallback if not matching expected pattern
 };
+
+export function slugify(title) {
+  return title
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}

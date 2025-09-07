@@ -1,6 +1,8 @@
 import React from "react";
 import { LuStar, LuStarHalf, LuStar as LuStarEmpty } from "react-icons/lu"; // Use appropriate icon set if different
 import { assets } from "../mock/asset";
+import { useNavigate } from "react-router-dom";
+import { slugify } from "../mock/functions";
 
 const CourseCardComponent = ({ course }) => {
   const {
@@ -24,6 +26,14 @@ const CourseCardComponent = ({ course }) => {
   const hasHalfStar = averageRating % 1 >= 0.5;
   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
 
+  const navigate = useNavigate();
+
+  const slug = slugify(title);
+
+  const handleGoToCoursePage = () => {
+    navigate(`/trainee/course/${slug}`);
+  };
+
   return (
     <div className="course-card">
       <div className="image">
@@ -45,7 +55,9 @@ const CourseCardComponent = ({ course }) => {
           <span>({reviews.length} Reviews)</span>
         </div>
 
-        <h3 className="title">{title}</h3>
+        <h3 onClick={handleGoToCoursePage} className="title">
+          {title}
+        </h3>
 
         <div className="meta">
           <span>{chapters} Lessons</span>

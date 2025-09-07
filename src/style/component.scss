@@ -551,6 +551,25 @@ $transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
       color: #fbbf24;
     }
 
+    h3 {
+      font-size: 1.2rem;
+      margin: 0.6rem 0;
+      position: relative;
+      white-space: normal;
+      overflow: hidden;
+      line-clamp: 2;
+      transition: $transition;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+
+      &:hover {
+        cursor: pointer;
+        color: $secondary-color;
+      }
+    }
+
     .meta {
       font-size: 14px;
       color: #6b7280;

@@ -10,6 +10,8 @@ import {
 import { courses } from "../mock/course";
 import CourseCardComponent from "../components/CourseCard";
 import { assets } from "../mock/asset";
+import { slugify } from "../mock/functions";
+import { useNavigate } from "react-router-dom";
 
 const numbers = [
   {
@@ -35,6 +37,8 @@ const StudentOverview = () => {
   const enrolledCourses = courses.filter((course) => course.progress !== 100);
   const completedCourses = courses.filter((course) => course.progress === 100);
 
+  const navigate = useNavigate();
+
   const allReviews = courses.flatMap((course) => course.reviews || []);
   const averageRating = allReviews.length
     ? allReviews.reduce((sum, r) => sum + r.rating, 0) / allReviews.length
@@ -43,6 +47,8 @@ const StudentOverview = () => {
   const fullStars = Math.floor(averageRating);
   const hasHalfStar = averageRating % 1 >= 0.5;
   const emptyStars = Math.max(0, 5 - fullStars - (hasHalfStar ? 1 : 0));
+
+  
 
   return (
     <div>
@@ -69,10 +75,16 @@ const StudentOverview = () => {
                 <h2>Courses</h2>
               </div>
               <ul className="tabs">
-                <li onClick={() => setCourseTab("enrolled")}>
+                <li
+                  className={courseTab === "enrolled" ? "active" : ""}
+                  onClick={() => setCourseTab("enrolled")}
+                >
                   <span>Enrolled Courses</span>
                 </li>
-                <li onClick={() => setCourseTab("completed")}>
+                <li
+                  className={courseTab === "completed" ? "active" : ""}
+                  onClick={() => setCourseTab("completed")}
+                >
                   <span>Completed Courses</span>
                 </li>
               </ul>
@@ -104,28 +116,37 @@ const StudentOverview = () => {
                     <div className="image">
                       <img
                         src={course.thumbnail || assets.coursethumbnail}
-                        alt=""
+                        alt={course.title}
                       />
                     </div>
                     <div className="text">
                       <div className="reviews">
-                        <div className="reviews">
-                          <span className="stars">
-                            {[...Array(fullStars)].map((_, i) => (
-                              <LuStar key={`full-${i}`} fill="#f59e0b" />
-                            ))}
-                            {hasHalfStar && <LuStarHalf fill="#f59e0b" />}
-                            {[...Array(emptyStars)].map((_, i) => (
-                              <LuStarEmpty
-                                key={`empty-${i}`}
-                                stroke="#d1d5db"
-                              />
-                            ))}
-                          </span>
-                          <span>({course.reviews.length} Reviews)</span>
-                        </div>
+                        <span className="stars">
+                          {[...Array(fullStars)].map((_, i) => (
+                            <LuStar
+                              key={`full-${i}`}
+                              stroke="none"
+                              fill="#f59e0b"
+                            />
+                          ))}
+                          {hasHalfStar && (
+                            <LuStarHalf stroke="none" fill="#f59e0b" />
+                          )}
+                          {[...Array(emptyStars)].map((_, i) => (
+                            <LuStarEmpty key={`empty-${i}`} stroke="#d1d5db" />
+                          ))}
+                        </span>
+                        <span className="rev">
+                          ({course.reviews.length} Reviews)
+                        </span>
                       </div>
-                      <h3>{course.title}</h3>
+                      <h3
+                        onClick={() => {
+                          navigate(`/trainee/course/${slugify(course.title)}`);
+                        }}
+                      >
+                        {course.title}
+                      </h3>
                       <div className="small-details">
                         <div className="item">
                           <span className="icon">

@@ -3,7 +3,7 @@
 //     id: 1,
 //     title: "Introduction to Malaria",
 
-import { assets } from "./asset";
+import { assets, userProfiles } from "./asset";
 
 //     instructor: "Dr. NIZEYIMANA A. Felix",
 // thumbnail: assets.coursethumbnail,
@@ -73,14 +73,15 @@ export const courses = [
     title: "Introduction to Malaria",
     instructor: "Dr. NIZEYIMANA A. Felix",
     thumbnail: assets.coursethumbnail,
-    language: ["EN", "KI", "FR"],
+    language: ["En", "Ki", "Fr"],
     duration: "4 hours",
     enrollments: 21,
     certificate: true,
     progress: 100,
     chapters: 12,
+    category: "Disease Treatment",
     lastOpened: "July 22, 2025",
-    description: `<p>This course provides a comprehensive overview of malaria, its causes, transmission methods, symptoms, and prevention strategies. Learners will gain insight into the importance of early detection and community health practices in malaria-prone areas.</p>`,
+    description: `<p>This course provides a comprehensive overview of malaria, its causes, transmission methods, symptoms, and prevention strategies. Learners will gain insight into the importance of early detection and community health practices in <i>malaria-prone areas</i>.</p>`,
     content: [
       {
         title: "Introduction to Malaria",
@@ -94,13 +95,14 @@ export const courses = [
         lessons: [
           {
             title: "The Role of Mosquitoes in Malaria Transmission",
+            duration: "12:44",
             content: `
               <h3>The Role of Mosquitoes in Malaria Transmission</h3>
               <p>Malaria is primarily transmitted through the bite of a female <em>Anopheles</em> mosquito. These mosquitoes become infected when they bite a person who already has malaria parasites in their blood.</p>
               <p><strong>Important:</strong> Only female mosquitoes transmit malaria. They usually bite between dusk and dawn, which is why using mosquito nets (LLINs) is crucial.</p>
             `,
           },
-          { title: "High-Risk Groups in the Community" },
+          { title: "High-Risk Groups in the Community", duration: "02:44" },
         ],
       },
     ],
@@ -108,6 +110,7 @@ export const courses = [
       {
         name: "Reviewer Names",
         rating: 5,
+        image: userProfiles.user1,
         message:
           "My favorite compliment is being told that I look like my mom. Seeing myself in her image, like this daughter up top.",
       },
@@ -125,6 +128,7 @@ export const courses = [
     certificate: true,
     progress: 40,
     chapters: 10,
+    category: "Disease Treatment",
     lastOpened: "August 2, 2025",
     description: `<p><strong>HIV & AIDS</strong> continue to impact millions globally. This course teaches the biology of the virus, how it spreads, treatment options, and how stigma can be reduced through awareness.</p>`,
     content: [
@@ -147,6 +151,7 @@ export const courses = [
       {
         name: "Peace N.",
         rating: 5,
+        image: userProfiles.user2,
         message:
           "Clear and respectful delivery of a sensitive topic. Thank you.",
       },
@@ -164,6 +169,7 @@ export const courses = [
     certificate: true,
     progress: 70,
     chapters: 8,
+    category: "Disease Treatment",
     lastOpened: "August 28, 2025",
     description: `<p>This course supports healthcare workers and community members in understanding maternal care before, during, and after pregnancy. Includes nutrition, danger signs, and postnatal care.</p>`,
     content: [
@@ -179,11 +185,13 @@ export const courses = [
       {
         name: "Janet K.",
         rating: 4,
+        image: userProfiles.user7,
         message: "Great resource for first-time mothers and health volunteers.",
       },
       {
         name: "Janet Kab.",
         rating: 3,
+        image: userProfiles.user3,
         message: "Great resource for first-time mothers and health volunteers.",
       },
     ],
@@ -201,6 +209,7 @@ export const courses = [
     status: "enrolled",
     progress: 100,
     chapters: 9,
+    category: "Disease Treatment",
     lastOpened: "August 20, 2025",
     description: `<p>Learn how to prevent waterborne diseases through practical WASH strategies including water purification, latrine building, and hygiene promotion.</p>`,
     content: [
@@ -216,6 +225,7 @@ export const courses = [
       {
         name: "Jean-Claude M.",
         rating: 5,
+        image: userProfiles.user4,
         message:
           "We applied the hygiene tips in our village, and diarrhea cases dropped drastically.",
       },
@@ -234,6 +244,7 @@ export const courses = [
     status: "completed",
     progress: 50,
     chapters: 11,
+    category: "Disease Treatment",
     lastOpened: "August 30, 2025",
     description: `<p>This course empowers community health workers to engage their neighbors, build trust, and lead health initiatives effectively in rural and urban settings.</p>`,
     content: [
@@ -249,6 +260,7 @@ export const courses = [
       {
         name: "David R.",
         rating: 4,
+        image: userProfiles.user5,
         message:
           "Simple, practical, and empowering. Made me more confident in my outreach role.",
       },
@@ -267,6 +279,7 @@ export const courses = [
     status: "enrolled",
     progress: 18,
     chapters: 7,
+    category: "Disease Treatment",
     lastOpened: "September 1, 2025",
     description: `<p><em>Proper nutrition is essential</em> in the first 1000 days of a child’s life. Learn how to prevent stunting, monitor growth, and provide balanced meals on a limited budget.</p>`,
     content: [
@@ -281,6 +294,7 @@ export const courses = [
       {
         name: "Mama Louise",
         rating: 5,
+        image: userProfiles.user6,
         message:
           "Helped me understand how to use local foods to feed my children better.",
       },
@@ -299,6 +313,7 @@ export const courses = [
     status: "completed",
     progress: 5,
     chapters: 6,
+    category: "Mental Health",
     lastOpened: "September 4, 2025",
     description: `<p>This beginner course introduces you to common mental health conditions, how to provide psychological first aid, and when to seek professional help.</p>`,
     content: [
@@ -313,6 +328,7 @@ export const courses = [
       {
         name: "Sam D.",
         rating: 5,
+        image: userProfiles.user7,
         message:
           "Everyone should take this. It opened my eyes to silent struggles in my community.",
       },
