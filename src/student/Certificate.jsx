@@ -138,7 +138,7 @@ const StudentCertificatePage = () => {
             <div className="content">
               <div className="cert-container">
                 {showCeleb && <Confetti style={{ maxWidth: "100%" }} />}
-                <img src={assets.certificate || assets.certificate} alt="" />
+                <img loading="lazy" src={assets.certificate || assets.certificate} alt="" />
               </div>
             </div>
           </div>

@@ -1,0 +1,117 @@
+// Font sizes
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-2xl: 1.5rem;
+
+// Line heights
+$line-height-xs: 1rem;
+$line-height-sm: 1.25rem;
+$line-height-md: 1.5rem;
+$line-height-lg: 1.75rem;
+$line-height-2xl: 2rem;
+
+// Border radius
+$border-radius-md: 0.25rem;
+
+// Durations
+$duration-sm: 100ms;
+$duration-md: 300ms;
+$duration-2xl: 3000ms;
+
+// Colors
+$color-blue-50: #eff6ff;
+$color-blue-500: #3b82f6;
+$color-blue-600: #2563eb;
+
+$color-red-500: #ef4444;
+$color-red-600: #dc2626;
+
+$color-green-600: #16a34a;
+
+$color-gray-100: #f3f4f6;
+$color-gray-300: #d1d5db;
+$color-gray-400: #9ca3af;
+$color-gray-500: #6b7280;
+
+$color-white: #ffffff;
+$color-black: #000000;
+
+$color-text-light: #f9fafb;
+$color-text-dark: #030712;
+
+// Box shadows
+$box-shadow-md: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+$box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+// Responsive breakpoints
+$mobile-only: '(max-width: 767px)';
+$desktop-only: '(min-width: 768px)';
+
+
+.miniCalendar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date {
+  font-size: $font-size-sm;
+  line-height: $line-height-sm;
+}
+
+.controls {
+  display: flex;
+  gap: 0.125rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dayOfWeekList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.25rem;
+}
+
+.dayOfWeek {
+  text-align: center;
+  font-size: $font-size-xs;
+  line-height: $line-height-xs;
+  font-weight: 500;
+}
+
+.dayList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.25rem;
+}
+
+.dayListItem {
+  text-align: center;
+}
+
+.day {
+  width: 100%;
+  border: 1px solid transparent;
+}
+
+.dayOther {
+  color: $color-gray-500;
+}
+
+.dayHighlight {
+  border-color: $color-blue-600;
+}

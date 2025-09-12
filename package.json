@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@dytesdk/react-ui-kit": "^3.0.8",
+    "@dytesdk/react-web-core": "^3.1.7",
     "@hello-pangea/dnd": "^18.0.1",
     "axios": "^1.11.0",
     "date-fns": "^4.1.0",
@@ -21,6 +23,7 @@
     "jspdf": "^3.0.2",
     "lucide-react": "^0.536.0",
     "react": "^18.3.1",
+    "react-calendar": "^6.0.0",
     "react-confetti": "^6.4.0",
     "react-dom": "^18.3.1",
     "react-dropzone": "^14.3.8",

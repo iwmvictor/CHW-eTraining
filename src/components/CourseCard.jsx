@@ -37,12 +37,12 @@ const CourseCardComponent = ({ course }) => {
   return (
     <div className="course-card">
       <div className="image">
-        <img src={thumbnail || assets.coursethumbnail} alt={title} />
+        <img loading="lazy" src={thumbnail || assets.coursethumbnail} alt={title} />
         {isLive && <span className="live-badge">Live</span>}
       </div>
 
       <div className="card-body">
-        <div className="reviews">
+        <div className="card-reviews">
           <span className="stars">
             {[...Array(fullStars)].map((_, i) => (
               <LuStar key={`full-${i}`} fill="#f59e0b" />

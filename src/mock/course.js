@@ -128,7 +128,7 @@ export const courses = [
     certificate: true,
     progress: 40,
     chapters: 10,
-    category: "Disease Treatment",
+    category: "First Aid Support",
     lastOpened: "August 2, 2025",
     description: `<p><strong>HIV & AIDS</strong> continue to impact millions globally. This course teaches the biology of the virus, how it spreads, treatment options, and how stigma can be reduced through awareness.</p>`,
     content: [

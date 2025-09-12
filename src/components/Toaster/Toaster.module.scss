@@ -1,0 +1,106 @@
+// Font sizes
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-2xl: 1.5rem;
+
+// Line heights
+$line-height-xs: 1rem;
+$line-height-sm: 1.25rem;
+$line-height-md: 1.5rem;
+$line-height-lg: 1.75rem;
+$line-height-2xl: 2rem;
+
+// Border radius
+$border-radius-md: 0.25rem;
+
+// Durations
+$duration-sm: 100ms;
+$duration-md: 300ms;
+$duration-2xl: 3000ms;
+
+// Colors
+$color-blue-50: #eff6ff;
+$color-blue-500: #3b82f6;
+$color-blue-600: #2563eb;
+
+$color-red-500: #ef4444;
+$color-red-600: #dc2626;
+
+$color-green-600: #16a34a;
+
+$color-gray-100: #f3f4f6;
+$color-gray-300: #d1d5db;
+$color-gray-400: #9ca3af;
+$color-gray-500: #6b7280;
+
+$color-white: #ffffff;
+$color-black: #000000;
+
+$color-text-light: #f9fafb;
+$color-text-dark: #030712;
+
+// Box shadows
+$box-shadow-md: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+$box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+// Responsive breakpoints
+$mobile-only: '(max-width: 767px)';
+$desktop-only: '(min-width: 768px)';
+
+
+
+
+.toaster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: calc(100vw - 2rem);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 1rem;
+  margin: auto;
+  pointer-events: none;
+}
+
+.toast {
+  font-weight: 500;
+  color: $color-text-light;
+  padding: 0.5rem 1rem;
+  border-radius: $border-radius-md;
+  animation: toast-in $duration-md ease,
+    toast-out $duration-md ease $duration-2xl;
+}
+
+.toastSuccess {
+  background-color: $color-green-600;
+}
+
+.toastError {
+  background-color: $color-red-600;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

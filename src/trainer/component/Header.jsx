@@ -33,7 +33,7 @@ const TrainerHeader = () => {
                 </div>
                 <div className="profile">
                   <button>
-                    <img src={assets.userProfile} alt="" />
+                    <img loading="lazy" src={assets.userProfile} alt="" />
                   </button>
                 </div>
               </div>

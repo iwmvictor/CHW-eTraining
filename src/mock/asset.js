@@ -7,10 +7,21 @@ import userProfileCover from "/images/img/cover.png";
 
 import placeholderImg from "/images/img/placeholder.svg";
 
+import homeHero from "/images/bg/hero.png";
+import ctaImg from "/images/bg/cta.png";
+import abtHero from "/images/bg/abthero.png";
+
 const coursethumbnail =
   "https://malariatraining.org/wp-content/uploads/2022/01/banner-malaria-course-01-1-1024x518.jpg";
 
 import certificate from "/images/img/certificate.svg";
+import medal from "/images/img/medal.svg";
+
+import profile1 from "/images/img/user1.png";
+import profile2 from "/images/img/user3.png";
+import profile3 from "/images/img/user2.png";
+
+import adCourse from "/images/img/advert.png";
 
 export const assets = {
   playstore,
@@ -19,9 +30,23 @@ export const assets = {
   placeholderImg,
   userProfileCover,
   coursethumbnail,
+  medal,
+  adCourse,
+
+  learners: {
+    profile1,
+    profile2,
+    profile3,
+  },
 
   auth: {
     bg: authBg,
+  },
+
+  bg: {
+    homeHero,
+    ctaImg,
+    abtHero,
   },
 };
 

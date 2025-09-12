@@ -172,7 +172,7 @@ const StudentCoursePage = () => {
                         <div className="discussed">
                           <div className="user-bubble">
                             <div className="image">
-                              <img src="" alt="" />
+                              <img loading="lazy" src="" alt="" />
                             </div>
                             <div className="txt">
                               <h3>Nsenga</h3>
@@ -185,7 +185,7 @@ const StudentCoursePage = () => {
                           </div>
                           <div className="user-bubble">
                             <div className="image">
-                              <img src="" alt="" />
+                              <img loading="lazy" src="" alt="" />
                             </div>
                             <div className="txt">
                               <h3>Nsenga</h3>
@@ -198,7 +198,7 @@ const StudentCoursePage = () => {
                           </div>
                           <div className="user-bubble">
                             <div className="image">
-                              <img src="" alt="" />
+                              <img loading="lazy" src="" alt="" />
                             </div>
                             <div className="txt">
                               <h3>Nsenga</h3>
@@ -211,7 +211,7 @@ const StudentCoursePage = () => {
                           </div>
                           <div className="user-bubble">
                             <div className="image">
-                              <img src="" alt="" />
+                              <img loading="lazy" src="" alt="" />
                             </div>
                             <div className="txt">
                               <h3>Nsenga</h3>
@@ -224,7 +224,7 @@ const StudentCoursePage = () => {
                           </div>
                           <div className="user-bubble">
                             <div className="image">
-                              <img src="" alt="" />
+                              <img loading="lazy" src="" alt="" />
                             </div>
                             <div className="txt">
                               <h3>Nsenga</h3>
@@ -493,9 +493,12 @@ const StudentCoursePage = () => {
                   <div className="progress">
                     <p>{course.progress}% Completed</p>
                     <div className="bar">
-                      <div className="perc" style={{
-                        width: `${course.progress}%`
-                      }}></div>
+                      <div
+                        className="perc"
+                        style={{
+                          width: `${course.progress}%`,
+                        }}
+                      ></div>
                     </div>
                   </div>
                   <div className="buttons">
@@ -515,7 +518,9 @@ const StudentCoursePage = () => {
                   </div>
 
                   {course.progress > 0 && (
-                    <p className="recent">Recently opened on {course.lastOpened}</p>
+                    <p className="recent">
+                      Recently opened on {course.lastOpened}
+                    </p>
                   )}
                 </div>
                 <div className="card-descr">

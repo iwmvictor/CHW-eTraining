@@ -1,0 +1,144 @@
+// Font sizes
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-2xl: 1.5rem;
+
+// Line heights
+$line-height-xs: 1rem;
+$line-height-sm: 1.25rem;
+$line-height-md: 1.5rem;
+$line-height-lg: 1.75rem;
+$line-height-2xl: 2rem;
+
+// Border radius
+$border-radius-md: 0.25rem;
+
+// Durations
+$duration-sm: 100ms;
+$duration-md: 300ms;
+$duration-2xl: 3000ms;
+
+// Colors
+$color-blue-50: #eff6ff;
+$color-blue-500: #3b82f6;
+$color-blue-600: #2563eb;
+
+$color-red-500: #ef4444;
+$color-red-600: #dc2626;
+
+$color-green-600: #16a34a;
+
+$color-gray-100: #f3f4f6;
+$color-gray-300: #d1d5db;
+$color-gray-400: #9ca3af;
+$color-gray-500: #6b7280;
+
+$color-white: #ffffff;
+$color-black: #000000;
+
+$color-text-light: #f9fafb;
+$color-text-dark: #030712;
+
+// Box shadows
+$box-shadow-md: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+  0 1px 2px -1px rgba(0, 0, 0, 0.1);
+$box-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+// Responsive breakpoints
+$mobile-only: "(max-width: 767px)";
+$desktop-only: "(min-width: 768px)";
+
+.monthCalendar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dayOfWeekList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  border-bottom: 1px solid $color-gray-300;
+  padding: 0.75rem 0;
+}
+
+.dayOfWeek {
+  font-size: $font-size-md;
+  line-height: $line-height-md;
+  text-align: center;
+  font-weight: 500;
+}
+
+.dayListWrapper {
+  position: relative;
+  flex: 1;
+}
+
+.dayList {
+  list-style: none;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  overflow-y: auto;
+
+  .fourWeek & {
+    grid-template-rows: repeat(4, minmax(auto, 1fr));
+  }
+
+  .fiveWeek & {
+    grid-template-rows: repeat(5, minmax(auto, 1fr));
+  }
+
+  .sixWeek & {
+    grid-template-rows: repeat(6, minmax(auto, 1fr));
+  }
+}
+
+.day {
+  display: flex;
+  padding: 0.3rem 1rem;
+  flex-direction: column;
+  border-right: 1px solid $color-gray-300;
+  border-bottom: 1px solid $color-gray-300;
+
+  &:nth-child(7n) {
+    border-right: 0;
+  }
+
+  .fourWeek &:nth-child(n + 22) {
+    border-bottom: 0;
+  }
+
+  .fiveWeek &:nth-child(n + 29) {
+    border-bottom: 0;
+  }
+
+  .sixWeek &:nth-child(n + 36) {
+    border-bottom: 0;
+  }
+}
+
+.dayLabel {
+  color: $color-text-dark;
+  width: 100%;
+  padding: 0.5rem 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.eventListWrapper {
+  flex-grow: 1;
+  padding-bottom: 1.5rem;
+}
+
+.dayHighlight {
+  background-color: rgba(#6c5ce7, 0.3);
+  border: none;
+  font-weight: 500;
+  font-size: 1.2rem;
+}

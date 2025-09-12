@@ -90,7 +90,7 @@ const TrainerMessage = () => {
                 <>
                   <div className="chat-header">
                     <div className="image">
-                      <img src={currentChat.avatar} alt={currentChat.name} />
+                      <img loading="lazy" src={currentChat.avatar} alt={currentChat.name} />
                     </div>
                     <div className="input">
                       <div className="search">

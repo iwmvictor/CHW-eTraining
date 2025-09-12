@@ -142,3 +142,18 @@ export const chats = [
     ],
   },
 ];
+
+export const chatBot = [
+  {
+    user: "bot",
+    message: `<p>Hello, Welcome on board <br/> I am CHW’s AI Assistant, give me you name and how can i help you today?</p>`,
+  },
+  {
+    user: "you",
+    message: `Hi, I am David <br/> Just curious wanna know more about CHW e-learning program and how it help local health advisors?`,
+  },
+  {
+    user: "bot",
+    message: `Sure, <b>David</b>! I'd be happy to help. <br/>The CHW e-learning program (short for Community Health Worker e-learning program) is a digital training platform designed to educate and support local health advisors or community health workers (CHWs).`,
+  },
+];

@@ -95,7 +95,7 @@ const TrainerSettings = () => {
                     />
                   </div>
                   <div className="ppicture">
-                    <img src={profilePreview || assets.userProfile} alt="pp" />
+                    <img loading="lazy" src={profilePreview || assets.userProfile} alt="pp" />
                     <label htmlFor="profile-pic">
                       <span>
                         <LuCamera />
@@ -206,7 +206,7 @@ const TrainerSettings = () => {
             ) : (
               <div className="password-tab">
                 <div className="image">
-                  <img src={profilePreview || assets.userProfile} alt="pp" />
+                  <img loading="lazy" src={profilePreview || assets.userProfile} alt="pp" />
                 </div>
                 <div className="form">
                   <div className="input">

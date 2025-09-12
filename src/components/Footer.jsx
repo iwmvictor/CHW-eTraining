@@ -19,7 +19,7 @@ const LandingFooter = () => {
                 <h2>Download or app and learn on go</h2>
               </div>
               <div className="img">
-                <img src={assets.playstore} alt="PlayStore" />
+                <img loading="lazy" src={assets.playstore} alt="PlayStore" />
               </div>
             </div>
           </div>

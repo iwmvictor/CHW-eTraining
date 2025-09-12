@@ -72,7 +72,7 @@ const RegisterPage = () => {
     <div className="auth">
       <div className="register">
         <div className="sidebar">
-          <img src={assets.auth.bg} alt="background" />
+          <img loading="lazy" src={assets.auth.bg} alt="background" />
           <div className="container">
             <div className="content">
               <div className="logo">

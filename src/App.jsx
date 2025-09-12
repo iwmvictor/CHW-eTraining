@@ -74,12 +74,12 @@ const App = () => {
               path="course/:path/learning"
               element={<StudentCoursePage />}
             /> */}
-            {/* <Route
+            <Route
               path="course/:path/learning/completed"
               element={<StudentLearningComplete />}
-            /> */}
-            {/* <Route path="live/:path" element={<StudentLiveSession />} /> */}
-            {/* <Route path="calendar" element={<StudentCalendarPage />} /> */}
+            />
+            <Route path="live/:path" element={<StudentLiveSession />} />
+            <Route path="calendar" element={<StudentCalendarPage />} />
             <Route path="assessments" element={<StudentQuizzes />} />
             {/* <Route path="assessment/:path" element={<StudentQuizPage />} /> */}
             <Route
