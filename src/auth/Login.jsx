@@ -36,6 +36,10 @@ const LoginPage = () => {
                     <div className="div">
                       <div>
                         <p>Don't have an account yet?</p>
+                        <p>
+                          <Link to={"/trainee"}>learner</Link> {" . "}
+                          <Link to={"/trainer"}>admin</Link>
+                        </p>
                       </div>
                       <div>
                         <Link to={"/auth/register"}>
@@ -54,9 +58,9 @@ const LoginPage = () => {
                     </div>
                     <div className="input-group">
                       <div className="input">
-                      <input type="password" name="password" required />
-                      <label htmlFor="password">Password</label>
-                    </div>
+                        <input type="password" name="password" required />
+                        <label htmlFor="password">Password</label>
+                      </div>
                     </div>
                     <div className="div">
                       <div className="remember">

@@ -12,7 +12,7 @@ import { chatBot } from "../mock/messages";
 import PrimaryLoader from "./Loader/PrimaryLoader";
 
 const ChatBot = () => {
-  const [chatModal, setChatModal] = useState(true);
+  const [chatModal, setChatModal] = useState(false);
 
   const handleChatModal = () => {
     setChatModal(!chatModal);

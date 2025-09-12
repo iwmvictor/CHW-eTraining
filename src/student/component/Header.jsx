@@ -3,8 +3,16 @@ import { assets } from "../../mock/asset";
 import { LuBell, LuSearch } from "react-icons/lu";
 
 import "./../../style/trainee.scss";
+import { useState } from "react";
+import { ProfileDrawer } from "./ProfileDrawer";
 
 const StudentHeader = () => {
+  const [profileOptionModal, setProfileOptionModal] = useState(false);
+
+  const handleProfileOptions = () => {
+    setProfileOptionModal(!profileOptionModal);
+  };
+
   return (
     <>
       <div className="student-header">
@@ -29,12 +37,36 @@ const StudentHeader = () => {
                   </span>
                 </button>
               </div>
-              <div className="profile">
+              <div className="profile" onClick={handleProfileOptions}>
                 <button>
                   <img loading="lazy" src={assets.userProfile} alt="" />
                 </button>
               </div>
             </div>
+
+            {profileOptionModal && (
+              // <div className="profile-options">
+              //   <div className="user-profile">
+              //     <div className="img">
+              //       <img loading="lazy" src={assets.userProfile} alt="" />
+              //     </div>
+              //     <div className="info">
+              //       <h3>Full Names</h3>
+              //       <p>email@gmail.com</p>
+              //     </div>
+              //   </div>
+              //   <ul>
+              //     <li>
+              //       <span className="icon"></span>
+              //       <span className="txt"></span>
+              //     </li>
+              //   </ul>
+              // </div>
+
+              <>
+              <ProfileDrawer/>
+              </>
+            )}
           </div>
         </div>
       </div>

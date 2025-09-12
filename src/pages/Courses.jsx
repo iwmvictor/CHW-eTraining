@@ -197,9 +197,7 @@ const CoursesPage = () => {
                             <button
                               className={currentPage === i + 1 ? "active" : ""}
                               onClick={() => setCurrentPage(i + 1)}
-                            >
-
-                            </button>
+                            ></button>
                           </li>
                         ))}
                       </ul>

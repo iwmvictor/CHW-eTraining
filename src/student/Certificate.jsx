@@ -1,10 +1,9 @@
-import React, { useRef, useState } from "react";
+import  { useRef, useState } from "react";
 import { LuArrowLeft, LuDownload, LuShare2, LuX } from "react-icons/lu";
 import Confetti from "react-confetti";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { assets } from "../mock/asset";
-import { set } from "react-hook-form";
 
 const StudentCertificatePage = () => {
   const certificateRef = useRef(null);

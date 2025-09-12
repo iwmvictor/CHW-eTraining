@@ -146,7 +146,7 @@ const StudentCoursePage = () => {
                           <h2>Course Content</h2>
                           <div className="contents-list">
                             {course.content.map((item, i) => (
-                              <div className="cont">
+                              <div className="cont" key={i}>
                                 <h4>{item.title}</h4>
                                 <ul>
                                   {item.lessons.map((lesson, index) => (

@@ -29,6 +29,7 @@ import StudentQuizPage from "./student/Quiz";
 import StudentCertificatePage from "./student/Certificate";
 import StudentLearningComplete from "./student/LearningComplete";
 import StudentCalendarPage from "./student/Calendar";
+import CourseLearningLayout from "./student/CourseLearning";
 
 const App = () => {
   return (
@@ -70,10 +71,14 @@ const App = () => {
           <Route path="trainee" element={<StudentLayout />}>
             <Route index element={<StudentOverview />} />
             <Route path="course/:path" element={<StudentCoursePage />} />
-            {/* <Route
+            <Route
               path="course/:path/learning"
               element={<StudentCoursePage />}
-            /> */}
+            />
+            <Route
+              path="learning"
+              element={<CourseLearningLayout />}
+            />
             <Route
               path="course/:path/learning/completed"
               element={<StudentLearningComplete />}
