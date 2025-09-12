@@ -28,6 +28,10 @@ const StudentCoursePage = () => {
     navigate(-1);
   };
 
+  const handleLearnNow = () => {
+    navigate(`/trainee/course/${slug}/learning`);
+  };
+
   const course = courses.find((c) => slugify(c.title) === slug);
 
   if (!course) {
@@ -502,7 +506,7 @@ const StudentCoursePage = () => {
                     </div>
                   </div>
                   <div className="buttons">
-                    <button className="learn">
+                    <button onClick={handleLearnNow} className="learn">
                       <span>
                         {course.progress > 0
                           ? "Continue Learning"
