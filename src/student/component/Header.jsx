@@ -112,7 +112,9 @@ const StudentHeader = () => {
                   </div>
                   <ul>
                     {ProfileModal.map((item, index) => (
-                      <Link to={item.url} key={index}>
+                      <Link
+                      //  to={item.url} 
+                       key={index}>
                         <span className="icon">
                           <item.icon />
                         </span>
@@ -123,7 +125,9 @@ const StudentHeader = () => {
 
                   <ul className="more">
                     {ProfileInfo.map((item, index) => (
-                      <Link to={item.url} key={index}>
+                      <Link 
+                      // to={item.url} 
+                      key={index}>
                         <span className="icon">
                           <item.icon />
                         </span>

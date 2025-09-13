@@ -16,7 +16,7 @@ Web app - community health workers
 
 <hr>
 
-- **trainer's pages:** _1page remaining_
+- **trainer's pages:**
 
   - courses list
   - students list
@@ -31,27 +31,24 @@ Web app - community health workers
 
 <hr/>
 
-- **trainee's pages:** _2pages done_
+- **trainee's pages:**
 
   - overview
   - message
+  - single course/learning pages
+  - calendar
+  - quiz enrol
+  - live session
+  - ai support
+
   - **Remaining:**
 
     - simulations page
-    - single course/learning pages
-    - calendar
-    - quiz enrol
-    - live session
-    - ai support
 
 **REMAINING**
-- landing pages
-- students pages
 
-
-
-
-
+- Quiz
+- _ensuring pages are well linked_
 
 # 🌐 CHW E-Training Platform
 
@@ -69,25 +66,25 @@ Below is the list of all routes grouped into **public**, **authentication**, **t
 
 ### 🚪 Public Routes
 
-| Path                     | Description                 |
-|--------------------------|-----------------------------|
-| `/`                      | Homepage                    |
-| `/about`                 | About the platform          |
-| `/courses`              | Browse available courses    |
-| `/courses/:path`        | Course detail page          |
-| `/contact`              | Contact form *(same as CourseDetailPage)* |
+| Path             | Description                               |
+| ---------------- | ----------------------------------------- |
+| `/`              | Homepage                                  |
+| `/about`         | About the platform                        |
+| `/courses`       | Browse available courses                  |
+| `/courses/:path` | Course detail page                        |
+| `/contact`       | Contact form _(same as CourseDetailPage)_ |
 
 ---
 
 ### 🔐 Auth Routes
 
-| Path                             | Description              |
-|----------------------------------|--------------------------|
-| `/auth/register`                | Register new user        |
-| `/auth/login`                   | Login page               |
-| `/auth/recover-password`        | Recover forgotten password |
-| `/auth/reset-password`          | Reset password           |
-| `/auth/*`                       | Catch-all → redirects to login |
+| Path                     | Description                    |
+| ------------------------ | ------------------------------ |
+| `/auth/register`         | Register new user              |
+| `/auth/login`            | Login page                     |
+| `/auth/recover-password` | Recover forgotten password     |
+| `/auth/reset-password`   | Reset password                 |
+| `/auth/*`                | Catch-all → redirects to login |
 
 ---
 
@@ -95,17 +92,17 @@ Below is the list of all routes grouped into **public**, **authentication**, **t
 
 _All routes are prefixed with `/trainer`._
 
-| Path                                 | Description                     |
-|--------------------------------------|---------------------------------|
-| `/trainer`                           | Trainer dashboard               |
-| `/trainer/courses`                   | My courses                      |
-| `/trainer/courses/new`              | Quick create new course         |
-| `/trainer/course/create`            | Start new course setup          |
-| `/trainer/course/create/chapter`    | Add chapter to a course         |
-| `/trainer/analytics`                | Analytics dashboard             |
-| `/trainer/students`                 | View enrolled students          |
-| `/trainer/settings`                 | Trainer settings/profile        |
-| `/trainer/inbox`                    | Messages / inbox                |
+| Path                             | Description              |
+| -------------------------------- | ------------------------ |
+| `/trainer`                       | Trainer dashboard        |
+| `/trainer/courses`               | My courses               |
+| `/trainer/courses/new`           | Quick create new course  |
+| `/trainer/course/create`         | Start new course setup   |
+| `/trainer/course/create/chapter` | Add chapter to a course  |
+| `/trainer/analytics`             | Analytics dashboard      |
+| `/trainer/students`              | View enrolled students   |
+| `/trainer/settings`              | Trainer settings/profile |
+| `/trainer/inbox`                 | Messages / inbox         |
 
 ---
 
@@ -113,21 +110,20 @@ _All routes are prefixed with `/trainer`._
 
 _All routes are prefixed with `/trainee`._
 
-| Path                                               | Description                          |
-|----------------------------------------------------|--------------------------------------|
-| `/trainee`                                         | Trainee dashboard                    |
-| `/trainee/course/:path`                            | View course details                  |
-| `/trainee/course/:path/learning`                   | Start/resume learning                |
-| `/trainee/course/:path/learning/completed`         | Completed course page                |
-| `/trainee/live/:path`                              | Join live session                    |
-| `/trainee/calendar`                                | Personal learning calendar           |
-| `/trainee/assessments`                             | List of assessments                  |
-| `/trainee/assessment/:path`                        | Take an assessment                   |
-| `/trainee/course/certificate/:path`                | View/download course certificate     |
+| Path                                       | Description                      |
+| ------------------------------------------ | -------------------------------- |
+| `/trainee`                                 | Trainee dashboard                |
+| `/trainee/course/:path`                    | View course details              |
+| `/trainee/course/:path/learning`           | Start/resume learning            |
+| `/trainee/course/:path/learning/completed` | Completed course page            |
+| `/trainee/live/:path`                      | Join live session                |
+| `/trainee/calendar`                        | Personal learning calendar       |
+| `/trainee/assessments`                     | List of assessments              |
+| `/trainee/assessment/:path`                | Take an assessment               |
+| `/trainee/course/certificate/:path`        | View/download course certificate |
 
 ---
 
 ## 🛠 Vercel Configuration
 
 To enable client-side routing on Vercel, make sure you add a `vercel.json` file at the root of your project with the following content:
-
