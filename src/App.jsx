@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from "./pages/Homepage";
@@ -75,10 +74,7 @@ const App = () => {
               path="course/:path/learning"
               element={<CourseLearningLayout />}
             />
-            <Route
-              path="learning"
-              element={<CourseLearningLayout />}
-            />
+            <Route path="learning" element={<CourseLearningLayout />} />
             <Route
               path="course/:path/learning/completed"
               element={<StudentLearningComplete />}

@@ -14,6 +14,7 @@ import {
   LuThumbsUp,
   LuTimer,
   LuUsersRound,
+  LuStar as LuStarEmpty,
 } from "react-icons/lu";
 import { assets, userProfiles } from "../mock/asset";
 import { useState } from "react";
