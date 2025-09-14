@@ -3,7 +3,7 @@ import { assets } from "../../mock/asset";
 import { LuBell, LuSearch } from "react-icons/lu";
 
 import "./../../style/trainee.scss";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ProfileDrawer } from "./ProfileDrawer";
 
 import { HiOutlineCalendar, HiOutlineUser } from "react-icons/hi";
@@ -60,11 +60,28 @@ const ProfileInfo = [
 ];
 
 const StudentHeader = () => {
+  const profileRef = useRef(null);
   const [profileOptionModal, setProfileOptionModal] = useState(false);
 
   const handleProfileOptions = () => {
     setProfileOptionModal(!profileOptionModal);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setProfileOptionModal(false);
+      }
+    };
+
+    if (profileOptionModal) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [profileOptionModal]);
 
   return (
     <>
@@ -100,7 +117,7 @@ const StudentHeader = () => {
             {profileOptionModal && (
               <>
                 {/* <ProfileDrawer /> */}
-                <div className="profile-options">
+                <div className="profile-options" ref={profileRef}>
                   <div className="user-profile">
                     <div className="img">
                       <img loading="lazy" src={assets.userProfile} alt="" />
@@ -113,8 +130,9 @@ const StudentHeader = () => {
                   <ul>
                     {ProfileModal.map((item, index) => (
                       <Link
-                      //  to={item.url} 
-                       key={index}>
+                         to={item.url}
+                        key={index}
+                      >
                         <span className="icon">
                           <item.icon />
                         </span>
@@ -125,9 +143,10 @@ const StudentHeader = () => {
 
                   <ul className="more">
                     {ProfileInfo.map((item, index) => (
-                      <Link 
-                      // to={item.url} 
-                      key={index}>
+                      <Link
+                        to={item.url}
+                        key={index}
+                      >
                         <span className="icon">
                           <item.icon />
                         </span>

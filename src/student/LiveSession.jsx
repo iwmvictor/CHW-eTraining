@@ -8,7 +8,6 @@ import {
   LuMicOff,
   LuPaperclip,
   LuShare2,
-  LuUpload,
   LuUsersRound,
   LuVoicemail,
   LuVolume2,

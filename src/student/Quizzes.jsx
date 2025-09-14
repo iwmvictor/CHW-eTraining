@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { LuArrowUpDown, LuSearch, LuSettings2 } from "react-icons/lu";
+import { slugify } from "../mock/functions";
+import { useNavigate } from "react-router-dom";
 
 const assessments = [
   {
     courseName: "Maternal Health",
     category: "Quiz",
-    dueDate: "July 25, 2025",
+    dueDate: "Jul 25, 2025",
     status: "Completed",
     score: "85%",
     action: "Get Certificate",
@@ -13,7 +15,7 @@ const assessments = [
   {
     courseName: "Nutrition Basics",
     category: "Assignment",
-    dueDate: "July 28, 2025",
+    dueDate: "Jul 28, 2025",
     status: "Submitted",
     score: "Awaiting",
     action: "View Submission",
@@ -21,7 +23,7 @@ const assessments = [
   {
     courseName: "Child Health",
     category: "Quiz",
-    dueDate: "July 30, 2025",
+    dueDate: "Jul 30, 2025",
     status: "Not Started",
     score: "-",
     action: "Attempt Now",
@@ -29,7 +31,7 @@ const assessments = [
   {
     courseName: "Hygiene & Sanitation",
     category: "Assignment",
-    dueDate: "August 1, 2025",
+    dueDate: "Aug 1, 2025",
     status: "Pending",
     score: "-",
     action: "Start Now",
@@ -37,7 +39,7 @@ const assessments = [
   {
     courseName: "Nutrition Basics",
     category: "Quiz",
-    dueDate: "July 22, 2025",
+    dueDate: "Jul 22, 2025",
     status: "Missed",
     score: "0%",
     action: "-",
@@ -45,7 +47,7 @@ const assessments = [
   {
     courseName: "Nutrition Basics",
     category: "Assignment",
-    dueDate: "July 28, 2025",
+    dueDate: "Jul 28, 2025",
     status: "Pending",
     score: "-",
     action: "Start Now",
@@ -53,7 +55,7 @@ const assessments = [
   {
     courseName: "Environmental Health",
     category: "Quiz",
-    dueDate: "August 3, 2025",
+    dueDate: "Aug 3, 2025",
     status: "Completed",
     score: "92%",
     action: "Get Certificate",
@@ -61,7 +63,7 @@ const assessments = [
   {
     courseName: "Immunization",
     category: "Quiz",
-    dueDate: "August 5, 2025",
+    dueDate: "Aug 5, 2025",
     status: "Not Started",
     score: "-",
     action: "Attempt Now",
@@ -69,7 +71,7 @@ const assessments = [
   {
     courseName: "First Aid",
     category: "Assignment",
-    dueDate: "August 7, 2025",
+    dueDate: "Aug 7, 2025",
     status: "Submitted",
     score: "Awaiting",
     action: "View Submission",
@@ -77,7 +79,7 @@ const assessments = [
   {
     courseName: "Mental Health",
     category: "Quiz",
-    dueDate: "August 9, 2025",
+    dueDate: "Aug 9, 2025",
     status: "Completed",
     score: "88%",
     action: "Get Certificate",
@@ -85,7 +87,7 @@ const assessments = [
   {
     courseName: "Public Health Policy",
     category: "Assignment",
-    dueDate: "August 11, 2025",
+    dueDate: "Aug 11, 2025",
     status: "Pending",
     score: "-",
     action: "Start Now",
@@ -93,7 +95,7 @@ const assessments = [
   {
     courseName: "Infectious Diseases",
     category: "Quiz",
-    dueDate: "August 13, 2025",
+    dueDate: "Aug 13, 2025",
     status: "Missed",
     score: "0%",
     action: "-",
@@ -101,7 +103,7 @@ const assessments = [
   {
     courseName: "Reproductive Health",
     category: "Assignment",
-    dueDate: "August 15, 2025",
+    dueDate: "Aug 15, 2025",
     status: "Submitted",
     score: "Awaiting",
     action: "View Submission",
@@ -109,7 +111,7 @@ const assessments = [
   {
     courseName: "Child Psychology",
     category: "Quiz",
-    dueDate: "August 17, 2025",
+    dueDate: "Aug 17, 2025",
     status: "Completed",
     score: "90%",
     action: "Get Certificate",
@@ -117,7 +119,7 @@ const assessments = [
   {
     courseName: "Nutrition Basics",
     category: "Quiz",
-    dueDate: "August 19, 2025",
+    dueDate: "Aug 19, 2025",
     status: "Missed",
     score: "0%",
     action: "-",
@@ -125,7 +127,7 @@ const assessments = [
   {
     courseName: "Disease Prevention",
     category: "Assignment",
-    dueDate: "August 21, 2025",
+    dueDate: "Aug 21, 2025",
     status: "Pending",
     score: "-",
     action: "Start Now",
@@ -133,7 +135,7 @@ const assessments = [
   {
     courseName: "Community Health",
     category: "Assignment",
-    dueDate: "August 23, 2025",
+    dueDate: "Aug 23, 2025",
     status: "Not Started",
     score: "-",
     action: "Attempt Now",
@@ -141,7 +143,7 @@ const assessments = [
   {
     courseName: "Elderly Care",
     category: "Quiz",
-    dueDate: "August 25, 2025",
+    dueDate: "Aug 25, 2025",
     status: "Completed",
     score: "95%",
     action: "Get Certificate",
@@ -149,7 +151,7 @@ const assessments = [
   {
     courseName: "Health & Safety",
     category: "Assignment",
-    dueDate: "August 27, 2025",
+    dueDate: "Aug 27, 2025",
     status: "Submitted",
     score: "Awaiting",
     action: "View Submission",
@@ -157,7 +159,7 @@ const assessments = [
   {
     courseName: "Emergency Response",
     category: "Quiz",
-    dueDate: "August 29, 2025",
+    dueDate: "Aug 29, 2025",
     status: "Not Started",
     score: "-",
     action: "Attempt Now",
@@ -169,7 +171,21 @@ const StudentQuizzes = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [openMenuIndex, setOpenMenuIndex] = useState(null);
 
+  const navigate = useNavigate();
+
   const itemsPerPage = 10;
+
+  const handleDoQuiz = (item) => {
+    const slug = slugify(item.courseName);
+
+    if (item.status === "Not Started" || "Attempt Now") {
+      navigate(`/trainee/assessment/${slug}`);
+    } else if (item.status === "Completed") {
+      navigate(`/trainee/course/certificate/${slug}`);
+    } else {
+      return;
+    }
+  };
 
   const getFilteredAssessments = () => {
     switch (assessment) {
@@ -276,17 +292,22 @@ const StudentQuizzes = () => {
                       <span>{item.score}</span>
                     </div>
                     <div className="c-action">
-                      <button>
+                      <button
+                        disabled={
+                          item.status === "Missed" || item.action === "-"
+                        }
+                        onClick={() => handleDoQuiz(item)}
+                      >
                         <span>
                           {item.status === "Not Started"
                             ? "Attempt Now"
-                            : item.status === "Missed"
-                            ? ".."
-                            : item.status === "Pending"
-                            ? "Start Now"
                             : item.status === "Completed"
                             ? "Get Certificate"
-                            : "Learn more"}
+                            : item.status === "Pending"
+                            ? "Start Now"
+                            : item.status === "Submitted"
+                            ? "View Submission"
+                            : "-"}
                         </span>
                       </button>
                     </div>

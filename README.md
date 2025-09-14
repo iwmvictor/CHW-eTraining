@@ -40,6 +40,7 @@ Web app - community health workers
   - quiz enrol
   - live session
   - ai support
+  - Quiz
 
   - **Remaining:**
 
@@ -47,8 +48,8 @@ Web app - community health workers
 
 **REMAINING**
 
-- Quiz
 - _ensuring pages are well linked_
+
 
 # 🌐 CHW E-Training Platform
 

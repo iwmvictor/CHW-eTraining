@@ -48,10 +48,8 @@ const StudentOverview = () => {
   const hasHalfStar = averageRating % 1 >= 0.5;
   const emptyStars = Math.max(0, 5 - fullStars - (hasHalfStar ? 1 : 0));
 
-  
-
   return (
-    <div>
+    <>
       <div className="dashboard">
         <div className="student-overview">
           <div className="container">
@@ -169,7 +167,7 @@ const StudentOverview = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

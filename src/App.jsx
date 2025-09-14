@@ -29,6 +29,7 @@ import StudentCertificatePage from "./student/Certificate";
 import StudentLearningComplete from "./student/LearningComplete";
 import StudentCalendarPage from "./student/Calendar";
 import CourseLearningLayout from "./student/CourseLearning";
+import StudentChatMessage from "./student/Message";
 
 const App = () => {
   return (
@@ -82,7 +83,8 @@ const App = () => {
             <Route path="live/:path" element={<StudentLiveSession />} />
             <Route path="calendar" element={<StudentCalendarPage />} />
             <Route path="assessments" element={<StudentQuizzes />} />
-            {/* <Route path="assessment/:path" element={<StudentQuizPage />} /> */}
+            <Route path="assessment/:path" element={<StudentQuizPage />} />
+            <Route path="messages" element={<StudentChatMessage />} />
             <Route
               path="course/certificate/:path"
               element={<StudentCertificatePage />}
