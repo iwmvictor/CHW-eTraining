@@ -4,6 +4,16 @@ Web app - community health workers
 
 - [@Iwmvictor](https://github.com/iwmvictor)
 
+# DUMMY LOGIN CREDENTIALS
+
+For login, can use these credentials:
+
+| Role    | email             | password |
+| ------- | ----------------- | -------- |
+| Student | _student@chw.com_ | **123**  |
+| Trainer | _trainer@chw.com_ | **123**  |
+| Admin   | _admin@chw.com_   | **123**  |
+
 ## Progress
 
 **Completed**
@@ -49,7 +59,6 @@ Web app - community health workers
 **REMAINING**
 
 - _ensuring pages are well linked_
-
 
 # 🌐 CHW E-Training Platform
 

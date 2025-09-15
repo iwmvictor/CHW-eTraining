@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 import { assets } from "../../mock/asset";
 import { LuBell, LuSearch } from "react-icons/lu";
 
-import "./../../style/trainee.scss";
 import { useState, useEffect, useRef } from "react";
-import { ProfileDrawer } from "./ProfileDrawer";
 
 import { HiOutlineCalendar, HiOutlineUser } from "react-icons/hi";
 import { PiNotebookLight, PiCertificateLight } from "react-icons/pi";
@@ -16,34 +14,19 @@ import { VscSignOut } from "react-icons/vsc";
 
 const ProfileModal = [
   {
-    url: "/trainee",
-    title: "Courses",
-    icon: PiNotebookLight,
-  },
-  {
-    url: "/trainee/calendar",
+    url: "/admin/calendar",
     title: "Calendar",
     icon: HiOutlineCalendar,
   },
   {
-    url: "/trainee/assessments",
-    title: "Assessments",
-    icon: LuClipboardList,
-  },
-  {
-    url: "/trainee/course/certificate/sample",
-    title: "Certificates",
-    icon: PiCertificateLight,
-  },
-  {
-    url: "/trainee/messages",
+    url: "/admin/messages",
     title: "Community",
     icon: SlBubbles,
   },
 ];
 const ProfileInfo = [
   {
-    url: "/trainee/settings",
+    url: "/admin/settings",
     title: "Settings",
     icon: BsToggleOff,
   },
@@ -59,7 +42,7 @@ const ProfileInfo = [
   },
 ];
 
-const StudentHeader = () => {
+const AdminHeader = () => {
   const profileRef = useRef(null);
   const [profileOptionModal, setProfileOptionModal] = useState(false);
 
@@ -129,10 +112,7 @@ const StudentHeader = () => {
                   </div>
                   <ul>
                     {ProfileModal.map((item, index) => (
-                      <Link
-                         to={item.url}
-                        key={index}
-                      >
+                      <Link to={item.url} key={index}>
                         <span className="icon">
                           <item.icon />
                         </span>
@@ -143,10 +123,7 @@ const StudentHeader = () => {
 
                   <ul className="more">
                     {ProfileInfo.map((item, index) => (
-                      <Link
-                        to={item.url}
-                        key={index}
-                      >
+                      <Link to={item.url} key={index}>
                         <span className="icon">
                           <item.icon />
                         </span>
@@ -164,4 +141,4 @@ const StudentHeader = () => {
   );
 };
 
-export default StudentHeader;
+export default AdminHeader;

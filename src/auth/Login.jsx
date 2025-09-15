@@ -1,8 +1,56 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { assets } from "../mock/asset";
+import { toast } from "react-toastify";
+
+const dummyUsers = [
+  { email: "student@chw.com", password: "123", role: "trainee" },
+  { email: "trainer@chw.com", password: "123", role: "trainer" },
+  { email: "admin@chw.com", password: "123", role: "admin" },
+];
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const foundUser = dummyUsers.find(
+      (user) =>
+        user.email === formData.email && user.password === formData.password
+    );
+
+    if (foundUser) {
+      toast.success("Welcome!");
+
+      // Navigate based on role
+      if (foundUser.role === "trainee") {
+        navigate("/trainee");
+      } else if (foundUser.role === "admin") {
+        navigate("/admin");
+      } else if (foundUser.role === "trainer") {
+        navigate("/trainer");
+      }
+    } else {
+      setError("Invalid email or password");
+      toast.error("Invalid credentials");
+    }
+  };
+
   return (
     <div>
       <div className="auth">
@@ -49,16 +97,28 @@ const LoginPage = () => {
                     </div>
                   </div>
 
-                  <form>
+                  <form onSubmit={handleSubmit}>
                     <div className="input-group">
                       <div className="input">
-                        <input type="email" name="email" required />
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                        />
                         <label htmlFor="email">Email address</label>
                       </div>
                     </div>
                     <div className="input-group">
                       <div className="input">
-                        <input type="password" name="password" required />
+                        <input
+                          type="password"
+                          name="password"
+                          value={formData.password}
+                          onChange={handleChange}
+                          required
+                        />
                         <label htmlFor="password">Password</label>
                       </div>
                     </div>
@@ -74,7 +134,7 @@ const LoginPage = () => {
                       </div>
                     </div>
                     <div className="button">
-                      <button>Log in</button>
+                      <button type="submit">Log in</button>
                     </div>
                   </form>
                 </div>

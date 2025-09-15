@@ -30,10 +30,15 @@ import StudentLearningComplete from "./student/LearningComplete";
 import StudentCalendarPage from "./student/Calendar";
 import CourseLearningLayout from "./student/CourseLearning";
 import StudentChatMessage from "./student/Message";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AdminLayout from "./admin/component/Layout";
+import AdminAnalytics from "./admin/Analytics";
 
 const App = () => {
   return (
     <>
+      <ToastContainer />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingLayout />}>
@@ -63,6 +68,8 @@ const App = () => {
             />
             <Route path="analytics" element={<TrainerAnalyticsPage />} />
             <Route path="students" element={<TrainerStudentsList />} />
+            <Route path="calendar" element={<StudentCalendarPage />} />
+            <Route path="messages" element={<StudentChatMessage />} />
             <Route path="settings" element={<TrainerSettings />} />
             <Route path="inbox" element={<TrainerMessage />} />
           </Route>
@@ -83,12 +90,21 @@ const App = () => {
             <Route path="live/:path" element={<StudentLiveSession />} />
             <Route path="calendar" element={<StudentCalendarPage />} />
             <Route path="assessments" element={<StudentQuizzes />} />
+            <Route path="settings" element={<TrainerSettings />} />
             <Route path="assessment/:path" element={<StudentQuizPage />} />
             <Route path="messages" element={<StudentChatMessage />} />
             <Route
               path="course/certificate/:path"
               element={<StudentCertificatePage />}
             />
+          </Route>
+
+          {/* ADMIN */}
+          <Route path="admin" element={<AdminLayout />}>
+            <Route index element={<AdminAnalytics />} />
+            <Route path="calendar" element={<StudentCalendarPage />} />
+            <Route path="messages" element={<StudentChatMessage />} />
+            <Route path="settings" element={<TrainerSettings />} />
           </Route>
         </Routes>
       </BrowserRouter>

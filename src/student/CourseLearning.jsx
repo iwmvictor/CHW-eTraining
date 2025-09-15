@@ -16,7 +16,7 @@ const CourseLearningLayout = () => {
     if (!isCompleted(lesson.id)) {
       markAsCompleted(lesson.id);
     }
-  };
+  }; 
 
   return (
     <div className="course-layout">

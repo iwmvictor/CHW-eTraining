@@ -1,11 +1,87 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { LuBell, LuSearch } from "react-icons/lu";
 import { Link, NavLink } from "react-router-dom";
 import { assets } from "../../mock/asset";
 
 import "./../../style/trainer.scss";
 
+import { HiOutlineCalendar, HiOutlineUser } from "react-icons/hi";
+import { PiNotebookLight, PiCertificateLight } from "react-icons/pi";
+import { LuClipboardList } from "react-icons/lu";
+import { SlBubbles } from "react-icons/sl";
+import { BsToggleOff } from "react-icons/bs";
+import { MdInfoOutline } from "react-icons/md";
+import { VscSignOut } from "react-icons/vsc";
+
+const ProfileModal = [
+  {
+    url: "/trainer/courses",
+    title: "My Courses",
+    icon: PiNotebookLight,
+  },
+  {
+    url: "/trainer/calendar",
+    title: "Calendar",
+    icon: HiOutlineCalendar,
+  },
+  {
+    url: "/trainer/students",
+    title: "Students",
+    icon: LuClipboardList,
+  },
+  {
+    url: "/trainee/course/certificate/sample",
+    title: "Certificates",
+    icon: PiCertificateLight,
+  },
+  {
+    url: "/trainer/messages",
+    title: "Community",
+    icon: SlBubbles,
+  },
+];
+const ProfileInfo = [
+  {
+    url: "/trainer/settings",
+    title: "Settings",
+    icon: BsToggleOff,
+  },
+  {
+    url: "",
+    title: "Support",
+    icon: MdInfoOutline,
+  },
+  {
+    url: "/auth",
+    title: "Sign out",
+    icon: VscSignOut,
+  },
+];
+
 const TrainerHeader = () => {
+  const profileRef = useRef(null);
+  const [profileOptionModal, setProfileOptionModal] = useState(false);
+
+  const handleProfileOptions = () => {
+    setProfileOptionModal(!profileOptionModal);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setProfileOptionModal(false);
+      }
+    };
+
+    if (profileOptionModal) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [profileOptionModal]);
+
   return (
     <>
       <div className="trainer-header">
@@ -32,11 +108,49 @@ const TrainerHeader = () => {
                   </button>
                 </div>
                 <div className="profile">
-                  <button>
+                  <button onClick={handleProfileOptions}>
                     <img loading="lazy" src={assets.userProfile} alt="" />
                   </button>
                 </div>
               </div>
+
+              {profileOptionModal && (
+                <>
+                  {/* <ProfileDrawer /> */}
+                  <div className="profile-options" ref={profileRef}>
+                    <div className="user-profile">
+                      <div className="img">
+                        <img loading="lazy" src={assets.userProfile} alt="" />
+                      </div>
+                      <div className="info">
+                        <h3>Full Names</h3>
+                        <p>email@gmail.com</p>
+                      </div>
+                    </div>
+                    <ul>
+                      {ProfileModal.map((item, index) => (
+                        <Link to={item.url} key={index}>
+                          <span className="icon">
+                            <item.icon />
+                          </span>
+                          <span className="txt">{item.title}</span>
+                        </Link>
+                      ))}
+                    </ul>
+
+                    <ul className="more">
+                      {ProfileInfo.map((item, index) => (
+                        <Link to={item.url} key={index}>
+                          <span className="icon">
+                            <item.icon />
+                          </span>
+                          <span className="txt">{item.title}</span>
+                        </Link>
+                      ))}
+                    </ul>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -50,9 +164,7 @@ const TrainerHeader = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink
-                    to={"/trainer/courses"}
-                  >
+                  <NavLink to={"/trainer/courses"}>
                     <span>My Courses</span>
                   </NavLink>
                 </li>
