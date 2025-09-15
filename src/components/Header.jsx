@@ -61,28 +61,28 @@ const LandingHeader = () => {
             <div className="content">
               <div className="left">
                 <Link to="/" className="logo">
-                  <h2>CHW</h2>
+                  <h2>{t("platform")}</h2>
                 </Link>
 
                 <ul>
                   <li>
                     <NavLink to={"/"}>
-                      <span>Home</span>
+                      <span>{t("home")}</span>
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to={"/about"}>
-                      <span>About us</span>
+                      <span>{t("about")}</span>
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to={"/courses"}>
-                      <span>Courses</span>
+                      <span>{t("courses")}</span>
                     </NavLink>
                   </li>
                   <li>
                     <NavLink to={"/contact"}>
-                      <span>Contact</span>
+                      <span>{t("contact")}</span>
                     </NavLink>
                   </li>
                 </ul>
@@ -91,7 +91,7 @@ const LandingHeader = () => {
                 <div className="search">
                   <input
                     type="search"
-                    placeholder="Search here..."
+                    placeholder={t("search_placeholder")}
                     aria-label="Search"
                   />
                   <span className="icon">
@@ -99,7 +99,7 @@ const LandingHeader = () => {
                   </span>
                 </div>
                 <Link to={"/auth/login"} className="auth">
-                  <span>Sign In</span>
+                  <span>{t("signin")}</span>
                 </Link>
               </div>
             </div>

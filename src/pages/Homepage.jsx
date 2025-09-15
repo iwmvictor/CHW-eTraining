@@ -9,197 +9,293 @@ import {
 
 import { assets } from "../mock/asset";
 
+import { useTranslation } from "react-i18next";
+
 import "./../style/homepage.scss";
 import { Link } from "react-router-dom";
 import { courses } from "../mock/course";
 import CourseCardComponent from "../components/CourseCard";
 import BlogCardComponent from "../components/BlogCard";
+import { useMemo } from "react";
 
-const data = {
-  whyUs: {
-    titles: {
-      sub: "#Every Course Unlocks World of Possibilities",
-      title: "Learn from anywhere and build your career.",
-      imgs: [
-        assets.learners.profile1,
-        assets.learners.profile2,
-        assets.learners.profile3,
-        assets.learners.profile2,
-      ],
-    },
-    contents: [
-      {
-        icon: LuBriefcaseBusiness,
-        title: "Flexible schedule",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      },
-      {
-        icon: LuBriefcaseBusiness,
-        title: "Flexible schedule",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      },
-      {
-        icon: LuBriefcaseBusiness,
-        title: "Flexible schedule",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      },
-      {
-        icon: LuBriefcaseBusiness,
-        title: "Flexible schedule",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      },
-    ],
-  },
-  courses: {
-    titles: {
-      sub: "# Popular courses",
-      title: "Industry expert courses",
-      button: "All Courses",
-      buttonLink: "/courses",
-    },
-  },
-  facts: {
-    titles: {
-      sub: "#Some facts",
-      title: "We are among one of best eLearning",
-    },
-    content: [
-      {
-        num: 1,
-        text: "Year",
-      },
-      {
-        num: "13",
-        plus: "+",
-        text: "Courses added",
-      },
-      {
-        num: "2022",
-        plus: "+",
-        text: "Active users",
-      },
-    ],
-  },
-  reviews: {
-    titles: {
-      sub: "#Reviews",
-      title: "What people are saying about us",
-    },
-    reviewsList: [
-      {
-        rating: 3.5,
-        name: "A. Kamali",
-        role: "Student",
-        pic: assets.learners.profile2,
-        message:
-          "System should have features such as a notepad or sticky notes for learners to type out what they are learning",
-      },
-      {
-        rating: 5,
-        name: "Thamali K.",
-        role: "Student",
-        pic: assets.learners.profile1,
-        message:
-          "System should have features such as a notepad or sticky notes for learners to type out what they are learning",
-      },
-      {
-        rating: 4.5,
-        name: "A. Kamali",
-        role: "CHW",
-        pic: assets.learners.profile3,
-        message:
-          "System should have features such as a notepad or sticky notes for learners to type out what they are learning",
-      },
-    ],
-  },
-  cta: {
-    sub: "#Don't miss out",
-    title: "Work through top-notch courses in no time - all for free!",
-    buttons: {
-      btn1: "Get Started",
-      btn1Link: "/courses",
-      btn2: "Learn More",
-      btn2Link: "/about",
-    },
-  },
-  blogs: {
-    titles: {
-      sub: "#Articles, insights & stories",
-      title: "Latest Blogs",
-      button: "Explore More",
-    },
-    blogList: [
-      {
-        id: "article_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-        img: assets.placeholderImg,
-        date: 1738667236865,
-        category: "Education",
-        title:
-          "We are dedicated to transforming education through digital innovation.",
-        excert:
-          "We are dedicated to transforming education through digital innovation, making learning more engaging, and accessible.",
-      },
-      {
-        id: "article_2sZFHdS1UIIysJyDVzCpQhUhTIhw",
-        img: assets.placeholderImg,
-        date: 1738667236865,
-        category: "Education",
-        title:
-          "We are dedicated to transforming education through digital innovation.",
-        excert:
-          "We are dedicated to transforming education through digital innovation, making learning more engaging, and accessible.",
-      },
-      {
-        id: "article_2sZFHSaUIIysJyDVzCpQhUhTIhw",
-        img: assets.placeholderImg,
-        date: 1738667236865,
-        category: "Education",
-        title:
-          "We are dedicated to transforming education through digital innovation.",
-        excert:
-          "We are dedicated to transforming education through digital innovation, making learning more engaging, and accessible.",
-      },
-      {
-        id: "article_2sZFHSbUIIysJyDVzCpQhUhTIhw",
-        img: assets.placeholderImg,
-        date: 1738667236865,
-        category: "Education",
-        title:
-          "We are dedicated to transforming education through digital innovation.",
-        excert:
-          "We are dedicated to transforming education through digital innovation, making learning more engaging, and accessible.",
-      },
-      {
-        id: "article_2sZFHS1UIIysJyDVzCpQhUhTIhw",
-        img: assets.placeholderImg,
-        date: 1738667236865,
-        category: "Education",
-        title:
-          "We are dedicated to transforming education through digital innovation.",
-        excert:
-          "We are dedicated to transforming education through digital innovation, making learning more engaging, and accessible.",
-      },
-      {
-        id: "article_2sZFHS12UIIysJyDVzCpQhUhTIhw",
-        img: assets.placeholderImg,
-        date: 1738667236865,
-        category: "Education",
-        title:
-          "We are dedicated to transforming education through digital innovation.",
-        excert:
-          "We are dedicated to transforming education through digital innovation, making learning more engaging, and accessible.",
-      },
-    ],
-  },
-  partners: [
-    assets.placeholderImg,
-    assets.placeholderImg,
-    assets.placeholderImg,
-    assets.placeholderImg,
-  ],
-};
+// const data = {
+//   whyUs: {
+//     titles: {
+//       sub: t("section_join"),
+//       title: t("learn_from_anywhere"),
+//       imgs: [
+//         assets.learners.profile1,
+//         assets.learners.profile2,
+//         assets.learners.profile3,
+//         assets.learners.profile2,
+//       ],
+//     },
+//     contents: [
+//       {
+//         icon: LuBriefcaseBusiness,
+//         title: t("flexible_schedule_title"),
+//         text: t("flexible_schedule_body"),
+//       },
+//       {
+//         icon: LuBriefcaseBusiness,
+//         title: t("flexible_schedule_title"),
+//         text: t("flexible_schedule_body"),
+//       },
+//       {
+//         icon: LuBriefcaseBusiness,
+//         title: t("flexible_schedule_title"),
+//         text: t("flexible_schedule_body"),
+//       },
+//       {
+//         icon: LuBriefcaseBusiness,
+//         title: t("flexible_schedule_title"),
+//         text: t("flexible_schedule_body"),
+//       },
+//     ],
+//   },
+//   courses: {
+//     titles: {
+//       sub: t("popular_courses_title"),
+//       title: t("industry_expert_courses"),
+//       button: t("all_courses"),
+//       buttonLink: "/courses",
+//     },
+//   },
+//   facts: {
+//     titles: {
+//       sub: t("some_facts_title"),
+//       title: t("fact1"),
+//     },
+//     content: [
+//       { num: 1, text: t("fact_year") },
+//       { num: "13", plus: "+", text: t("fact_courses_added") },
+//       { num: "2022", plus: "+", text: t("fact_active_users") },
+//     ],
+//   },
+//   reviews: {
+//     titles: {
+//       sub: t("reviews_title"),
+//       title: t("reviews_subheading"),
+//     },
+//     reviewsList: [
+//       {
+//         rating: 3.5,
+//         name: t("reviewer1"),
+//         role: t("role_student"),
+//         pic: assets.learners.profile2,
+//         message: t("review_text"),
+//       },
+//       {
+//         rating: 5,
+//         name: t("reviewer2"),
+//         role: t("role_student"),
+//         pic: assets.learners.profile1,
+//         message: t("review_text"),
+//       },
+//       {
+//         rating: 4.5,
+//         name: t("reviewer3"),
+//         role: t("role_chw"),
+//         pic: assets.learners.profile3,
+//         message: t("review_text"),
+//       },
+//     ],
+//   },
+
+//   cta: {
+//     sub: t("dont_miss_out_title"),
+//     title: t("dont_miss_out_body"),
+//     buttons: {
+//       btn1: t("get_started"),
+//       btn1Link: "/courses",
+//       btn2: t("learn_more"),
+//       btn2Link: "/about",
+//     },
+//   },
+
+//   blogs: {
+//     titles: {
+//       sub: t("articles_title"),
+//       title: t("latest_blogs"),
+//       button: t("explore_more"),
+//     },
+//     blogList: [
+//       {
+//         id: "1",
+//         img: assets.placeholderImg,
+//         date: t("blog_date"),
+//         category: t("blog_category"),
+//         title: t("blog_heading"),
+//         excert: t("blog_subheading"),
+//       },
+//       {
+//         id: "article_2sZFHdS1UIIysJyDVzCpQhUhTIhw",
+//         img: assets.placeholderImg,
+//         date: 1738667236865,
+//         category: "Education",
+//         title:
+//           "We are dedicated to transforming education through digital innovation.",
+//         excert:
+//           "We are dedicated to transforming education through digital innovation, making learning more engaging, and accessible.",
+//       },
+//       {
+//         id: "article_2sZFHSaUIIysJyDVzCpQhUhTIhw",
+//         img: assets.placeholderImg,
+//         date: 1738667236865,
+//         category: "Education",
+//         title:
+//           "We are dedicated to transforming education through digital innovation.",
+//         excert:
+//           "We are dedicated to transforming education through digital innovation, making learning more engaging, and accessible.",
+//       },
+//       {
+//         id: "article_2sZFHSbUIIysJyDVzCpQhUhTIhw",
+//         img: assets.placeholderImg,
+//         date: 1738667236865,
+//         category: "Education",
+//         title:
+//           "We are dedicated to transforming education through digital innovation.",
+//         excert:
+//           "We are dedicated to transforming education through digital innovation, making learning more engaging, and accessible.",
+//       },
+//       {
+//         id: "article_2sZFHS1UIIysJyDVzCpQhUhTIhw",
+//         img: assets.placeholderImg,
+//         date: 1738667236865,
+//         category: "Education",
+//         title:
+//           "We are dedicated to transforming education through digital innovation.",
+//         excert:
+//           "We are dedicated to transforming education through digital innovation, making learning more engaging, and accessible.",
+//       },
+//       {
+//         id: "article_2sZFHS12UIIysJyDVzCpQhUhTIhw",
+//         img: assets.placeholderImg,
+//         date: 1738667236865,
+//         category: "Education",
+//         title:
+//           "We are dedicated to transforming education through digital innovation.",
+//         excert:
+//           "We are dedicated to transforming education through digital innovation, making learning more engaging, and accessible.",
+//       },
+//     ],
+//   },
+//   partners: [
+//     assets.placeholderImg,
+//     assets.placeholderImg,
+//     assets.placeholderImg,
+//     assets.placeholderImg,
+//   ],
+// };
 
 const Homepage = () => {
+  const { t } = useTranslation();
+
+  const data = useMemo(
+    () => ({
+      whyUs: {
+        titles: {
+          sub: t("section_join"),
+          title: t("learn_from_anywhere"),
+          imgs: [
+            assets.learners.profile1,
+            assets.learners.profile2,
+            assets.learners.profile3,
+            assets.learners.profile2,
+          ],
+        },
+        contents: Array(4).fill({
+          icon: LuBriefcaseBusiness,
+          title: t("flexible_schedule_title"),
+          text: t("flexible_schedule_body"),
+        }),
+      },
+      courses: {
+        titles: {
+          sub: t("popular_courses_title"),
+          title: t("industry_expert_courses"),
+          button: t("all_courses"),
+          buttonLink: "/courses",
+        },
+      },
+      facts: {
+        titles: {
+          sub: t("some_facts_title"),
+          title: t("fact1"),
+        },
+        content: [
+          { num: 1, text: t("fact_year") },
+          { num: "13", plus: "+", text: t("fact_courses_added") },
+          { num: "2022", plus: "+", text: t("fact_active_users") },
+        ],
+      },
+      reviews: {
+        titles: {
+          sub: t("reviews_title"),
+          title: t("reviews_subheading"),
+        },
+        reviewsList: [
+          {
+            rating: 3.5,
+            name: t("reviewer1"),
+            role: t("role_student"),
+            pic: assets.learners.profile2,
+            message: t("review_text"),
+          },
+          {
+            rating: 5,
+            name: t("reviewer2"),
+            role: t("role_student"),
+            pic: assets.learners.profile1,
+            message: t("review_text"),
+          },
+          {
+            rating: 4.5,
+            name: t("reviewer3"),
+            role: t("role_chw"),
+            pic: assets.learners.profile3,
+            message: t("review_text"),
+          },
+        ],
+      },
+      cta: {
+        sub: t("dont_miss_out_title"),
+        title: t("dont_miss_out_body"),
+        buttons: {
+          btn1: t("get_started"),
+          btn1Link: "/courses",
+          btn2: t("learn_more"),
+          btn2Link: "/about",
+        },
+      },
+      blogs: {
+        titles: {
+          sub: t("articles_title"),
+          title: t("latest_blogs"),
+          button: t("explore_more"),
+        },
+        blogList: [
+          {
+            id: "1",
+            img: assets.placeholderImg,
+            date: t("blog_date"),
+            category: t("blog_category"),
+            title: t("blog_heading"),
+            excert: t("blog_subheading"),
+          },
+          // Keep others as-is or translate more
+        ],
+      },
+      partners: [
+        assets.placeholderImg,
+        assets.placeholderImg,
+        assets.placeholderImg,
+        assets.placeholderImg,
+      ],
+    }),
+    [t]
+  );
+
   const filterCourses = courses.filter((c) => c.progress < 100);
 
   return (
@@ -407,7 +503,7 @@ const Homepage = () => {
           </div>
         </div>
 
-        <BrandPartners />
+        <BrandPartners partners={data.partners} />
       </div>
     </>
   );
@@ -415,7 +511,7 @@ const Homepage = () => {
 
 export default Homepage;
 
-export const BrandPartners = () => {
+export const BrandPartners = ({ partners }) => {
   return (
     <>
       <div className="partners">
@@ -426,7 +522,7 @@ export const BrandPartners = () => {
             </div>
 
             <div className="partner-list">
-              {data.partners.map((item, i) => (
+              {partners.map((item, i) => (
                 <div className="img" key={i}>
                   <img src={item} alt="" />
                 </div>
