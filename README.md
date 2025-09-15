@@ -18,47 +18,16 @@ For login, can use these credentials:
 
 **Completed**
 
-- **Auth pages:** _100% done_
-  - login
-  - register
-  - forgot
-  - reset
+- **Auth**
+- **Admin**
+- **Trainee**
+- **Trainer**
 
-<hr>
+**Remaining**
 
-- **trainer's pages:**
-
-  - courses list
-  - students list
-  - message page
-  - new course pages
-  - trainer analytics & overview
-  - settings
-
-    **Remaining:**
-
-    - simulations page
-
-<hr/>
-
-- **trainee's pages:**
-
-  - overview
-  - message
-  - single course/learning pages
-  - calendar
-  - quiz enrol
-  - live session
-  - ai support
-  - Quiz
-
-  - **Remaining:**
-
-    - simulations page
-
-**REMAINING**
-
-- _ensuring pages are well linked_
+- _Error pages_
+- _Refining learning page_
+- _testing_
 
 # 🌐 CHW E-Training Platform
 

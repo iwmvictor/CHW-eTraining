@@ -72,7 +72,7 @@ const AdminHeader = () => {
         <div className="container">
           <div className="content">
             <div className="left">
-              <Link to={"/trainer"} className="logo">
+              <Link to={"/admin"} className="logo">
                 <span>CHW</span>
               </Link>
               <div className="search">
