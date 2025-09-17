@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Header from "./component/learning/Header.jsx";
 import Sidebar from "./component/learning/Sidebar";
 import ContentViewer from "./component/learning/ContentViewer";
@@ -16,7 +16,7 @@ const CourseLearningLayout = () => {
     if (!isCompleted(lesson.id)) {
       markAsCompleted(lesson.id);
     }
-  }; 
+  };
 
   return (
     <div className="course-layout">

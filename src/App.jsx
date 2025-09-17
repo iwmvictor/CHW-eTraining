@@ -34,6 +34,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminLayout from "./admin/component/Layout";
 import AdminAnalytics from "./admin/Analytics";
+import CourseLearningPage from "./student/CourseLearningPage";
 
 const App = () => {
   return (
@@ -106,6 +107,9 @@ const App = () => {
             <Route path="messages" element={<StudentChatMessage />} />
             <Route path="settings" element={<TrainerSettings />} />
           </Route>
+
+          {/* COURSES */}
+          <Route path="course/:path/learning" element={<CourseLearningPage />} />
         </Routes>
       </BrowserRouter>
     </>

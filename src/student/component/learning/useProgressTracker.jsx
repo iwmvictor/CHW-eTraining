@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export const useProgressTracker = (courseId) => {
   const [completedLessons, setCompletedLessons] = useState(() => {
@@ -11,7 +11,10 @@ export const useProgressTracker = (courseId) => {
   });
 
   useEffect(() => {
-    localStorage.setItem(`course-progress-${courseId}`, JSON.stringify(completedLessons));
+    localStorage.setItem(
+      `course-progress-${courseId}`,
+      JSON.stringify(completedLessons)
+    );
   }, [completedLessons, courseId]);
 
   const markAsCompleted = (lessonId) => {
@@ -25,7 +28,6 @@ export const useProgressTracker = (courseId) => {
 
   const isCompleted = (lessonId) => completedLessons.includes(lessonId);
 
-  // Progress percentage calculation (out of total lessons)
   const progressPercentage = (completedLessons.length / 5) * 100; // 5 lessons hardcoded; update if dynamic
 
   return { markAsCompleted, isCompleted, progressPercentage };
