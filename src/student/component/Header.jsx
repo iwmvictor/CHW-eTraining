@@ -89,7 +89,7 @@ const StudentHeader = () => {
         <div className="container">
           <div className="content">
             <div className="left">
-              <Link to={"/trainer"} className="logo">
+              <Link to={"/trainee"} className="logo">
                 <span>CHW</span>
               </Link>
               <div className="search">

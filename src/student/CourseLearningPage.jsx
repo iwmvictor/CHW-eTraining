@@ -11,7 +11,7 @@ import {
   LuFileVideo2,
   LuFullscreen,
 } from "react-icons/lu";
-import { mockCourse } from "./component/learning/courseData";
+import { mockCourse } from "./component/courseData";
 import { useNavigate } from "react-router-dom";
 
 function useFullscreen(elementRef) {
@@ -578,7 +578,7 @@ const CourseLearningPage = () => {
                     activeSubchapter.content && (
                       <div className="text-viewer">
                         <div className="view-contents">
-                          <div
+                          <div className="rich-text"
                             dangerouslySetInnerHTML={{
                               __html: activeSubchapter.content,
                             }}

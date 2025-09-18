@@ -3,6 +3,7 @@
 //     id: 1,
 //     title: "Introduction to Malaria",
 
+import { uuidv4 } from "zod";
 import { assets, userProfiles } from "./asset";
 
 //     instructor: "Dr. NIZEYIMANA A. Felix",
@@ -68,6 +69,101 @@ import { assets, userProfiles } from "./asset";
 // ];
 
 export const courses = [
+  {
+    id: uuidv4(),
+    title: "Gukumira ikwirakwizwa rya virusi itera SIDA",
+    instructor: "Dr. NIZEYIMANA A. Felix",
+    thumbnail:
+      "https://elearning.ciichin.org/pluginfile.php/5368/course/section/309/HIV%20cover%20.jpg",
+    language: ["Rw", "Fr", "En"],
+    duration: "5 hours",
+    enrollments: 35,
+    certificate: true,
+    progress: 0,
+    chapters: 3,
+    category: "Ubuzima rusange",
+    lastOpened: null,
+    description: `<p>Iri somo rigamije gutanga ubumenyi bwimbitse ku gukumira ikwirakwizwa rya virusi itera SIDA no gufasha abajyanama b’ubuzima mu kwita ku bayirwaye. Rizafasha umutoza kumenya iby’iyi ndwara, uko yandura, uburyo bwo kuyirinda, n’akamaro ko kwirinda ivangura rikorerwa abayirwaye.</p>`,
+    content: [
+      {
+        title: "Imbumbe 1: Ubumenyi rusange ku ndwara ya SIDA",
+        lessons: [
+          {
+            title: "Virusi itera SIDA na SIDA ubwayo",
+            duration: "00:45",
+            content: `
+            <h3>Virusi itera SIDA na SIDA ubwayo</h3>
+            <p>Virusi itera SIDA (VIH) ni virusi igabanya ubudahangarwa bw’umubiri. Iyo umuntu amaze igihe ayanduye, ashobora kurwara SIDA, ari yo ndwara yatewe n’iyo virusi imaze kwangiza ubudahangarwa.</p>
+          `,
+          },
+          {
+            title: "Uburyo virusi itera SIDA yandura",
+            duration: "00:30",
+            content: `
+            <h3>Uburyo VIH yandura</h3>
+            <ul>
+              <li>Kunyura mu mibonano mpuzabitsina idakingiye</li>
+              <li>Kunyura mu gukoresha ibikoresho byangijwe n’amaraso yanduye (nko gusangira inshinge)</li>
+              <li>Kunyura ku mubyeyi ugiye kubyara cyangwa konsa</li>
+            </ul>
+          `,
+          },
+          {
+            title: "Akamaro ko kwipimisha",
+            duration: "00:30",
+          },
+          {
+            title: "Kurwanya akato n’ihezwa",
+            duration: "00:25",
+          },
+        ],
+      },
+      {
+        title: "Imbumbe 2: Gufasha abifuza serivisi za virusi itera SIDA",
+        lessons: [
+          {
+            title: "Uburyo bwo kwirinda kwandura VIH",
+            duration: "00:35",
+            content: `
+            <h3>Uburyo bwo kwirinda</h3>
+            <ul>
+              <li>Kwirinda imibonano mpuzabitsina idakingiye</li>
+              <li>Gukoresha agakingirizo neza</li>
+              <li>Kwikebesha/gusiramura</li>
+              <li>Kwirinda gusangira ibikoresho by’inshinge</li>
+            </ul>
+          `,
+          },
+          {
+            title: "Kurinda umubyeyi kwanduza umwana (PMTCT)",
+            duration: "00:40",
+          },
+        ],
+      },
+      {
+        title: "Imbumbe 3: Izindi ndwara zandurira mu mibonano mpuzabitsina",
+        lessons: [
+          {
+            title: "Indwara zandurira mu mibonano mpuzabitsina (STIs)",
+            duration: "00:30",
+          },
+          {
+            title: "Hepatite B na C",
+            duration: "00:30",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        name: "Alice Uwimana",
+        rating: 5,
+        image: "https://randomuser.me/api/portraits/women/65.jpg",
+        message:
+          "Nishimiye iri somo cyane! Ryanyongereye ubumenyi bwo gufasha abandi mu gukumira SIDA.",
+      },
+    ],
+  },
   {
     id: 1,
     title: "Introduction to Malaria",

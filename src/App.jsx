@@ -48,6 +48,7 @@ const App = () => {
             <Route path="courses" element={<CoursesPage />} />
             <Route path="courses/:path" element={<CourseDetailPage />} />
             <Route path="contact" element={<CourseDetailPage />} />
+            <Route path="*" element={<CourseDetailPage />} />
           </Route>
 
           {/* auth */}
