@@ -70,7 +70,7 @@ const App = () => {
               element={<NewCourseChapter />}
             />
             <Route path="assessment/create" element={<NewAssessmentPage />} />
-            <Route path="analytics" element={<TrainerAnalyticsPage />} />
+            <Route path="analytics" element={<AdminAnalytics />} />
             <Route path="students" element={<TrainerStudentsList />} />
             <Route path="calendar" element={<StudentCalendarPage />} />
             <Route path="messages" element={<StudentChatMessage />} />

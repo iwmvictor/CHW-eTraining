@@ -30,11 +30,6 @@ const ProfileModal = [
     icon: LuClipboardList,
   },
   {
-    url: "/trainee/course/certificate/sample",
-    title: "Certificates",
-    icon: PiCertificateLight,
-  },
-  {
     url: "/trainer/messages",
     title: "Community",
     icon: SlBubbles,
