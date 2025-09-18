@@ -81,7 +81,7 @@ const App = () => {
             <Route path="course/:path" element={<StudentCoursePage />} />
             <Route
               path="course/:path/learning"
-              element={<CourseLearningLayout />}
+              element={<CourseLearningPage />}
             />
             <Route path="learning" element={<CourseLearningLayout />} />
             <Route
@@ -109,7 +109,6 @@ const App = () => {
           </Route>
 
           {/* COURSES */}
-          <Route path="course/:path/learning" element={<CourseLearningPage />} />
         </Routes>
       </BrowserRouter>
     </>

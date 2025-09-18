@@ -61,26 +61,50 @@ export const courseData = {
 };
 
 export const mockCourse = {
-  id: slugify("Introduction to Modern Web Development"),
-  author: "John Doe",
-  duration: "2h 30m",
-  rating: 4.8,
-  title: "Introduction to Modern Web Development",
+  id: slugify("Understanding HIV and AIDS"),
+  author: "Dr. Jane Smith",
+  duration: "3h 15m",
+  rating: 4.9,
+  title: "Understanding HIV and AIDS",
   description:
-    "A beginner-friendly course to learn the fundamentals of web development, including HTML, CSS, JavaScript, and tools.",
+    "A comprehensive course for anyone who wants to understand HIV/AIDS—its history, transmission, prevention, treatment, and the global fight against stigma.",
   chapters: [
     {
       id: "ch1",
-      title: "Chapter 1: Getting Started with Web Development",
+      title: "Chapter 1: Introduction to HIV and AIDS",
       subchapters: [
         {
           id: "ch1-sc1",
-          title: "What is Web Development?",
+          title: "What is HIV?",
           content: `
-            <h2>Introduction to Web Development</h2>
-            <p><strong>Web development</strong> is the process of creating websites and web applications for the internet.</p>
-            <p><em>Front-end</em> development deals with the visual elements, while <u>back-end</u> focuses on server-side logic.</p>
-            <p>You'll also hear terms like <strong>Full-stack</strong>, which refers to someone who handles both sides.</p>
+            <h2>Understanding HIV</h2>
+            <p><strong>HIV</strong> (Human Immunodeficiency Virus) is a virus that attacks the immune system.</p>
+            <p>If left untreated, it can lead to <em>AIDS</em> (Acquired Immunodeficiency Syndrome).</p>
+            <p>HIV is spread through certain body fluids and weakens the body's ability to fight infections.</p>
+          `,
+          video: videoFile,
+          audio: audioFile,
+        },
+        {
+          id: "ch1-sc2",
+          title: "What is AIDS?",
+          content: `
+            <h2>The Progression to AIDS</h2>
+            <p><strong>AIDS</strong> is the final stage of HIV infection.</p>
+            <p>It occurs when the immune system becomes severely damaged due to the virus.</p>
+            <p>With proper treatment, many people with HIV never develop AIDS.</p>
+          `,
+          video: videoFile,
+          audio: audioFile,
+        },
+        {
+          id: "ch1-sc3",
+          title: "History of HIV/AIDS",
+          content: `
+            <h2>A Brief History</h2>
+            <p>The first known cases of HIV were reported in the early 1980s.</p>
+            <p>Initially misunderstood, HIV/AIDS became a global epidemic.</p>
+            <p>Today, we have a much better understanding and effective treatments.</p>
           `,
           video: videoFile,
           audio: audioFile,
@@ -89,16 +113,64 @@ export const mockCourse = {
     },
     {
       id: "ch2",
-      title: "Chapter 2: HTML Essentials",
+      title: "Chapter 2: Transmission and Prevention",
       subchapters: [
         {
           id: "ch2-sc1",
-          title: "Basic HTML Structure",
+          title: "How HIV is Transmitted",
           content: `
-            <h2>Understanding the HTML Skeleton</h2>
-            <p>An HTML document typically starts with a <strong>&lt;!DOCTYPE html&gt;</strong> declaration.</p>
-            <p>The structure includes <u>&lt;html&gt;</u>, <em>&lt;head&gt;</em>, and <strong>&lt;body&gt;</strong> sections.</p>
-            <p>Within the <strong>&lt;body&gt;</strong>, you place visible elements such as <strong>&lt;h1&gt;</strong>, <strong>&lt;p&gt;</strong>, and <strong>&lt;a&gt;</strong>.</p>
+            <h2>Modes of Transmission</h2>
+            <p>HIV is transmitted through:</p>
+            <ul>
+              <li>Unprotected sex</li>
+              <li>Sharing needles</li>
+              <li>From mother to child during birth or breastfeeding</li>
+              <li>Contaminated blood transfusions (rare today)</li>
+            </ul>
+          `,
+          video: videoFile,
+          audio: audioFile,
+        },
+        {
+          id: "ch2-sc2",
+          title: "How HIV is Not Transmitted",
+          content: `
+            <h2>Common Myths</h2>
+            <p>HIV is <strong>not</strong> spread through:</p>
+            <ul>
+              <li>Coughing or sneezing</li>
+              <li>Hugging or shaking hands</li>
+              <li>Sharing food or water</li>
+              <li>Toilet seats</li>
+            </ul>
+          `,
+          video: videoFile,
+          audio: audioFile,
+        },
+        {
+          id: "ch2-sc3",
+          title: "Prevention Methods",
+          content: `
+            <h2>Protecting Yourself and Others</h2>
+            <p>Effective prevention includes:</p>
+            <ul>
+              <li>Using condoms</li>
+              <li>Taking PrEP (pre-exposure prophylaxis)</li>
+              <li>Getting tested regularly</li>
+              <li>Limiting number of sexual partners</li>
+            </ul>
+          `,
+          video: videoFile,
+          audio: audioFile,
+        },
+        {
+          id: "ch2-sc4",
+          title: "Testing and Diagnosis",
+          content: `
+            <h2>Knowing Your Status</h2>
+            <p>HIV testing is quick, easy, and confidential.</p>
+            <p>Early diagnosis leads to better outcomes and helps prevent spread.</p>
+            <p>Modern tests can detect HIV within weeks of exposure.</p>
           `,
           video: videoFile,
           audio: audioFile,
@@ -107,16 +179,39 @@ export const mockCourse = {
     },
     {
       id: "ch3",
-      title: "Chapter 3: Styling with CSS",
+      title: "Chapter 3: Treatment and Living with HIV",
       subchapters: [
         {
           id: "ch3-sc1",
-          title: "CSS Basics",
+          title: "Antiretroviral Therapy (ART)",
           content: `
-            <h2>Adding Style with CSS</h2>
-            <p>CSS stands for <strong>Cascading Style Sheets</strong> and is used to style HTML elements.</p>
-            <p>You can use <em>inline</em>, <u>internal</u>, or <strong>external</strong> stylesheets.</p>
-            <p>Common properties include <strong>color</strong>, <strong>font-size</strong>, <strong>margin</strong>, and <strong>padding</strong>.</p>
+            <h2>Managing HIV with ART</h2>
+            <p>ART involves taking a combination of medicines daily.</p>
+            <p>It reduces the viral load and helps people live long, healthy lives.</p>
+            <p>ART is available globally and often free or low-cost.</p>
+          `,
+          video: videoFile,
+          audio: audioFile,
+        },
+        {
+          id: "ch3-sc2",
+          title: "Living a Healthy Life with HIV",
+          content: `
+            <h2>Beyond the Diagnosis</h2>
+            <p>People with HIV can work, have families, and lead fulfilling lives.</p>
+            <p>Healthy lifestyle choices and regular checkups are essential.</p>
+            <p>Support systems also play a crucial role.</p>
+          `,
+          video: videoFile,
+          audio: audioFile,
+        },
+        {
+          id: "ch3-sc3",
+          title: "U=U: Undetectable = Untransmittable",
+          content: `
+            <h2>What is U=U?</h2>
+            <p>If a person with HIV is on ART and their viral load is undetectable, they cannot transmit HIV sexually.</p>
+            <p>This powerful message helps reduce stigma and supports treatment adherence.</p>
           `,
           video: videoFile,
           audio: audioFile,
@@ -125,16 +220,43 @@ export const mockCourse = {
     },
     {
       id: "ch4",
-      title: "Chapter 4: JavaScript Fundamentals",
+      title: "Chapter 4: Social Impact and Global Response",
       subchapters: [
         {
           id: "ch4-sc1",
-          title: "Variables and Data Types",
+          title: "Stigma and Discrimination",
           content: `
-            <h2>JavaScript Variables</h2>
-            <p>JavaScript allows you to declare variables using <strong>let</strong>, <strong>const</strong>, or <strong>var</strong>.</p>
-            <p>Data types include: <em>string</em>, <em>number</em>, <em>boolean</em>, <u>object</u>, and <u>array</u>.</p>
-            <p>Example: <code>let name = "Alice";</code></p>
+            <h2>Breaking the Stigma</h2>
+            <p>Many people with HIV face stigma, which can impact mental health and access to care.</p>
+            <p>Education and empathy are key to ending discrimination.</p>
+          `,
+          video: videoFile,
+          audio: audioFile,
+        },
+        {
+          id: "ch4-sc2",
+          title: "HIV in Different Populations",
+          content: `
+            <h2>Vulnerable Groups</h2>
+            <p>Some groups are at higher risk, including:</p>
+            <ul>
+              <li>Men who have sex with men</li>
+              <li>Sex workers</li>
+              <li>People who inject drugs</li>
+              <li>Young women and girls in certain regions</li>
+            </ul>
+          `,
+          video: videoFile,
+          audio: audioFile,
+        },
+        {
+          id: "ch4-sc3",
+          title: "Global Efforts and Progress",
+          content: `
+            <h2>Fighting HIV Together</h2>
+            <p>Organizations like UNAIDS and WHO work globally to combat HIV/AIDS.</p>
+            <p>Access to testing, treatment, and education has improved greatly in recent years.</p>
+            <p>The goal is to end the HIV epidemic by 2030.</p>
           `,
           video: videoFile,
           audio: audioFile,
@@ -143,3 +265,4 @@ export const mockCourse = {
     },
   ],
 };
+
