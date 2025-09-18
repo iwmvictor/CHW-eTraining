@@ -103,7 +103,10 @@ const CreateNewCourse = () => {
                         <button className="cancel">
                           <span>Cancel</span>
                         </button>
-                        <button className="continue">
+                        <button
+                          onClick={() => navigate("/trainer/assessment/create")}
+                          className="continue"
+                        >
                           <span>Continue</span>
                         </button>
                       </div>

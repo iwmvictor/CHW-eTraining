@@ -35,6 +35,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AdminLayout from "./admin/component/Layout";
 import AdminAnalytics from "./admin/Analytics";
 import CourseLearningPage from "./student/CourseLearningPage";
+import NewAssessmentPage from "./trainer/NewQuiz";
 
 const App = () => {
   return (
@@ -68,6 +69,7 @@ const App = () => {
               path="course/create/chapter"
               element={<NewCourseChapter />}
             />
+            <Route path="assessment/create" element={<NewAssessmentPage />} />
             <Route path="analytics" element={<TrainerAnalyticsPage />} />
             <Route path="students" element={<TrainerStudentsList />} />
             <Route path="calendar" element={<StudentCalendarPage />} />
