@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { assets } from "../../mock/asset";
-import { LuBell, LuSearch } from "react-icons/lu";
+import { LuBell, LuRadioTower, LuSearch } from "react-icons/lu";
 
 import "./../../style/trainee.scss";
 import { useState, useEffect, useRef } from "react";
@@ -19,6 +19,11 @@ const ProfileModal = [
     url: "/trainee",
     title: "Courses",
     icon: PiNotebookLight,
+  },
+  {
+    url: "/trainee/live/learning",
+    title: "Live Session",
+    icon: LuRadioTower,
   },
   {
     url: "/trainee/calendar",
@@ -129,10 +134,7 @@ const StudentHeader = () => {
                   </div>
                   <ul>
                     {ProfileModal.map((item, index) => (
-                      <Link
-                         to={item.url}
-                        key={index}
-                      >
+                      <Link to={item.url} key={index}>
                         <span className="icon">
                           <item.icon />
                         </span>
@@ -143,10 +145,7 @@ const StudentHeader = () => {
 
                   <ul className="more">
                     {ProfileInfo.map((item, index) => (
-                      <Link
-                        to={item.url}
-                        key={index}
-                      >
+                      <Link to={item.url} key={index}>
                         <span className="icon">
                           <item.icon />
                         </span>

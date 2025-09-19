@@ -2491,6 +2491,9 @@ span {
       .chat-window {
         width: 100%;
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
         position: relative;
 
         .chat-header {
@@ -2498,7 +2501,7 @@ span {
           padding: 0.6rem;
           position: relative;
           border-bottom: 1px solid rgba(#073e92, 0.2);
-
+          flex-shrink: 0;
           gap: 3rem;
           display: flex;
           align-items: center;
@@ -2583,7 +2586,7 @@ span {
           z-index: 999;
           padding: 1rem;
           width: 100%;
-
+          flex-shrink: 0;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -2655,33 +2658,76 @@ span {
         }
 
         .chat-body {
+          flex: 1;
+          overflow-y: auto;
           position: relative;
           width: 100%;
           height: 100%;
           gap: 1rem;
           padding: 1rem;
           display: flex;
+          margin-bottom: 6rem;
+          scroll-behavior: smooth;
           flex-direction: column;
 
           .message-bubble {
-            position: relative;
+            max-width: 70%;
+            border-radius: 1rem;
             padding: 0.6rem 1rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            display: flex;
+            flex-direction: column;
+
+            &.sent {
+              align-self: flex-end;
+              background: $primary-color;
+              color: white;
+              border-bottom-right-radius: 0;
+            }
 
             &.received {
-              background: rgba(#073e92, 0.1);
-            }
-            &.sent {
-              background: $primary-color;
+              align-self: flex-start;
+              background: #f1f1f1;
+              color: $dark-color;
+              border-bottom-left-radius: 0;
             }
 
             .meta {
-              gap: 1rem;
               display: flex;
-              font-size: 0.8rem;
+              align-items: center;
+              gap: 0.5rem;
+              font-size: 0.7rem;
+              opacity: 0.6;
 
-              .sender {
-                font-style: italic;
+              .img-profile img {
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 0.6rem;
               }
+            }
+
+            p {
+              margin-top: 0.6rem;
+            }
+
+            .attachiz {
+              gap: 0.6rem;
+              display: flex;
+              flex-wrap: wrap;
+              margin-top: 1rem;
+              flex-direction: row;
+              padding: 0.6rem;
+              border-radius: 0.7rem;
+              background: rgba(0, 0, 0, 0.1);
+            }
+
+            img.attachment-preview {
+              width: 6rem;
+              height: auto;
+              border-radius: 0.5rem;
+              object-fit: cover;
+              cursor: pointer;
             }
           }
         }

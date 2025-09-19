@@ -1,9 +1,9 @@
 import ImageGallery from "../components/ImageGallery";
 import { assets, userProfiles } from "../mock/asset";
-import { BrandPartners } from "./Homepage";
 
 import "./../style/homepage.scss";
 import { useState } from "react";
+import { BrandPartners } from "./Homepage";
 
 const mockdata = {
   hero: {
@@ -170,10 +170,17 @@ const AboutPage = () => {
           </div>
         </section>
 
-        <BrandPartners />
+        <BrandPartners partners={mockPartners} />
       </div>
     </>
   );
 };
 
 export default AboutPage;
+
+const mockPartners = [
+  assets.placeholderImg,
+  assets.placeholderImg,
+  assets.placeholderImg,
+  assets.placeholderImg,
+];

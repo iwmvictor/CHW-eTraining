@@ -67,6 +67,7 @@ const StudentChatMessage = () => {
                           <img
                             src={chat.avatar || assets.userProfile}
                             alt={chat.name}
+                            loading="lazy"
                           />
                         </div>
                         <div className="txt">
@@ -119,20 +120,30 @@ const StudentChatMessage = () => {
                         >
                           <div className="meta">
                             {!msg.isMyMessage && (
+                              <span className="img-profile">
+                                <img src={currentChat.avatar} loading="lazy" />
+                              </span>
+                            )}
+                            {!msg.isMyMessage && (
                               <span className="sender">{msg.sender}</span>
                             )}
                             <span className="time">{msg.time}</span>
                           </div>
                           <p>{msg.text}</p>
 
-                          {msg.attachments?.map((file, i) => (
-                            <img
-                              key={i}
-                              src={file}
-                              className="attachment-preview"
-                              alt="attachment"
-                            />
-                          ))}
+                          {msg.attachments && (
+                            <div className="attachiz">
+                              {msg.attachments?.map((file, i) => (
+                                <div key={i}>
+                                  <img
+                                    src={file}
+                                    className="attachment-preview"
+                                    alt="attachment"
+                                  />
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       ))}
                     </div>

@@ -15,18 +15,32 @@ import {
   LuTimer,
   LuUsersRound,
   LuStar as LuStarEmpty,
+  LuList,
+  LuChevronDown,
+  LuChevronUp,
+  LuChevronRight,
 } from "react-icons/lu";
 import { assets, userProfiles } from "../mock/asset";
 import { useState } from "react";
+import ChatDiscussionComponent from "../components/ChatDiscussion";
+import { SquareStop } from "lucide-react";
 
 const StudentCoursePage = () => {
   const { path } = useParams();
   const navigate = useNavigate();
+  const [chapterFolded, setChapterFolded] = useState({});
   const [selectedTab, setSelectedTab] = useState("info");
   const slug = path;
 
   const handleBack = () => {
     navigate(-1);
+  };
+
+  const toggleChapterFolding = (index) => {
+    setChapterFolded((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
   };
 
   const handleLearnNow = () => {
@@ -152,19 +166,41 @@ const StudentCoursePage = () => {
                           <div className="contents-list">
                             {course.content.map((item, i) => (
                               <div className="cont" key={i}>
-                                <h4>{item.title}</h4>
-                                <ul>
-                                  {item.lessons.map((lesson, index) => (
-                                    <li key={index}>
-                                      <span className="list">
-                                        {lesson.title}
-                                      </span>
-                                      <span className="duration">
-                                        {lesson.duration}
-                                      </span>
-                                    </li>
-                                  ))}
-                                </ul>
+                                <div
+                                  className="lesson-chap"
+                                  onClick={() => toggleChapterFolding(i)}
+                                  style={{ cursor: "pointer" }}
+                                >
+                                  <div>
+                                    <h4>{item.title}</h4>
+                                  </div>
+                                  <div>
+                                    <span className="icon">
+                                      {!chapterFolded[i] ? (
+                                        <LuChevronRight />
+                                      ) : (
+                                        <LuChevronUp />
+                                      )}
+                                    </span>
+                                  </div>
+                                </div>
+                                {chapterFolded[i] && (
+                                  <ul>
+                                    {item.lessons.map((lesson, index) => (
+                                      <li key={index}>
+                                        <span className="list">
+                                          <span className="svg">
+                                            <SquareStop />
+                                          </span>
+                                          <span> {lesson.title}</span>
+                                        </span>
+                                        <span className="duration">
+                                          {lesson.duration}
+                                        </span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                )}
                               </div>
                             ))}
                           </div>
@@ -175,69 +211,10 @@ const StudentCoursePage = () => {
                     {selectedTab === "discussion" && (
                       <>
                         <div className="discussed">
+                          <ChatDiscussionComponent />
                           <div className="user-bubble">
                             <div className="image">
                               <img loading="lazy" src="" alt="" />
-                            </div>
-                            <div className="txt">
-                              <h3>Nsenga</h3>
-                              <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Eveniet esse vel
-                                necessitatibus obcaecati molestiae deleniti
-                              </p>
-                            </div>
-                          </div>
-                          <div className="user-bubble">
-                            <div className="image">
-                              <img loading="lazy" src="" alt="" />
-                            </div>
-                            <div className="txt">
-                              <h3>Nsenga</h3>
-                              <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Eveniet esse vel
-                                necessitatibus obcaecati molestiae deleniti
-                              </p>
-                            </div>
-                          </div>
-                          <div className="user-bubble">
-                            <div className="image">
-                              <img loading="lazy" src="" alt="" />
-                            </div>
-                            <div className="txt">
-                              <h3>Nsenga</h3>
-                              <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Eveniet esse vel
-                                necessitatibus obcaecati molestiae deleniti
-                              </p>
-                            </div>
-                          </div>
-                          <div className="user-bubble">
-                            <div className="image">
-                              <img loading="lazy" src="" alt="" />
-                            </div>
-                            <div className="txt">
-                              <h3>Nsenga</h3>
-                              <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Eveniet esse vel
-                                necessitatibus obcaecati molestiae deleniti
-                              </p>
-                            </div>
-                          </div>
-                          <div className="user-bubble">
-                            <div className="image">
-                              <img loading="lazy" src="" alt="" />
-                            </div>
-                            <div className="txt">
-                              <h3>Nsenga</h3>
-                              <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Eveniet esse vel
-                                necessitatibus obcaecati molestiae deleniti
-                              </p>
                             </div>
                           </div>
                         </div>

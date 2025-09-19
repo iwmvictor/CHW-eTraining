@@ -754,21 +754,58 @@ span {
                 .cont {
                   gap: 0.3rem;
                   display: flex;
+                  overflow: hidden;
+                  border-radius: 8px;
                   flex-direction: column;
+                  transition: $transition;
+                  box-shadow: 0 0 0 1px rgba(#073e92, 0.2);
+
+
+                  .lesson-chap{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 1rem;
+                    background: $white-color;
+
+                    .icon{
+                      font-size: 1.2rem;
+                    }
+                  }
 
                   h4 {
                     font-size: 1rem;
                     font-weight: 500;
-                    padding: 1rem;
-                    border-radius: 8px;
                     color: $black-color;
-                    background: $white-color;
-                    transition: $transition;
-                    box-shadow: 0 0 0 1px rgba(#073e92, 0.2);
                   }
 
                   ul {
-                    display: none;
+                    gap: 0.3rem;
+                    display: flex;
+                    padding: 1rem 1.5rem;
+                    flex-direction: column;
+
+                    li {
+                      gap: 1rem;
+                      font-size: 0.9rem;
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+
+                      span {
+                        gap: 0.3rem;
+                        display: flex;
+                        align-items: center;
+                      }
+
+                      .svg {
+                        font-size: 0.7rem;
+                      }
+
+                      svg {
+                        width: 0.8rem;
+                      }
+                    }
                   }
                 }
               }
