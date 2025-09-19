@@ -36,6 +36,8 @@ import AdminLayout from "./admin/component/Layout";
 import AdminAnalytics from "./admin/Analytics";
 import CourseLearningPage from "./student/CourseLearningPage";
 import NewAssessmentPage from "./trainer/NewQuiz";
+import NotFound from "./pages/NotFound";
+import ContactPage from "./pages/Contact";
 
 const App = () => {
   return (
@@ -50,8 +52,8 @@ const App = () => {
             {/* <Route path="courses/:path" element={<CourseDetailPage />} /> */}
             <Route path="course/:path" element={<StudentCoursePage />} />
 
-            <Route path="contact" element={<CourseDetailPage />} />
-            <Route path="*" element={<CourseDetailPage />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
 
           {/* auth */}

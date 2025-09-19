@@ -1328,3 +1328,227 @@ $transition: 0.8s cubic-bezier(0.22, 0.78, 0.45, 1.02);
     }
   }
 }
+
+// 404
+.not-found-page {
+  width: 100%;
+  min-height: 70vh;
+  background: #f5f5f5;
+  position: relative;
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      pointer-events: none;
+    }
+  }
+
+  display: flex;
+  align-items: center;
+
+  .content {
+    max-width: 680px;
+    position: relative;
+
+    h2 {
+      font-size: 3.3rem;
+      font-weight: 900;
+      color: $black-color;
+      margin-bottom: 1rem;
+      line-height: 3.3rem;
+    }
+
+    p {
+      color: $dark-color;
+      font-size: 1.2rem;
+      max-width: 90%;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      display: inline-flex;
+      position: relative;
+      padding: 0.8rem 1rem;
+      color: $white-color;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      z-index: 1;
+      overflow: hidden;
+      border-radius: 8px;
+      background: linear-gradient(
+        45deg,
+        $primary-color,
+        $primary-color,
+        $secondary-color
+      );
+      transition: $transition;
+      background-size: 300% 300%;
+      animation: shine 3s linear infinite;
+
+      &:hover {
+        background: $secondary-color;
+      }
+    }
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.contact-page {
+  width: 100%;
+  position: relative;
+  background: #f5f5f5;
+  padding-bottom: 6rem;
+
+  .map {
+    width: 100%;
+    position: relative;
+  }
+
+  .content {
+    width: 100%;
+    padding: 4rem 2rem;
+    border-radius: 8px;
+    margin-top: -10rem;
+    position: relative;
+    background: $white-color;
+    box-shadow: 0 0 0 0.1rem rgba($primary-color, 0.2);
+
+    gap: 2rem;
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap-reverse;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: $black-color;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+
+    .form {
+      flex: 1.2;
+      min-width: 250px;
+      position: relative;
+      gap: 1rem;
+      display: flex;
+      flex-direction: column;
+
+      .input {
+        position: relative;
+
+        input {
+          width: 100%;
+          height: 3rem;
+          padding: 1rem;
+          font-size: 1rem;
+          font-weight: 500;
+          border-radius: 8px;
+          color: $black-color;
+          transition: $transition;
+          box-shadow: 0 0 0 1px rgba($primary-color, 0.2);
+
+          &:hover,
+          &:focus {
+            box-shadow: 0 0 0 0.1rem rgba($secondary-color, 0.3);
+          }
+        }
+
+        textarea {
+          width: 100%;
+          height: 8rem;
+          padding: 1rem;
+          resize: none;
+          font-size: 1rem;
+          font-weight: 500;
+          border-radius: 8px;
+          color: $black-color;
+          transition: $transition;
+          box-shadow: 0 0 0 1px rgba($primary-color, 0.2);
+
+          &:hover,
+          &:focus {
+            box-shadow: 0 0 0 0.1rem rgba($secondary-color, 0.3);
+          }
+        }
+      }
+
+      button {
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: $white-color;
+        position: relative;
+        display: inline-flex;
+        width: fit-content;
+        border-radius: 8px;
+        transition: $transition;
+        background: $primary-color;
+
+        &:hover {
+          background: $secondary-color;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .conts {
+      flex: 0.8;
+      position: relative;
+      gap: 2rem;
+      display: grid;
+      align-items: center;
+      grid-template-columns: 1 1fr;
+
+      .div {
+        gap: 1rem;
+        display: flex;
+        align-items: start;
+
+        .icon {
+          width: 3rem;
+          height: 3rem;
+          display: flex;
+          font-size: 1.5rem;
+          color: $dark-color;
+          align-items: center;
+          border-radius: 1rem;
+          justify-content: center;
+          box-shadow: 0 0 0 1px rgba($primary-color, 0.2);
+        }
+
+        ul {
+          gap: 0.3rem;
+          display: flex;
+          flex-direction: column;
+
+          li {
+            font-size: 1rem;
+            font-weight: 500;
+            color: $dark-color;
+          }
+        }
+      }
+    }
+  }
+}

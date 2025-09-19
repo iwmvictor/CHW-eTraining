@@ -23,6 +23,8 @@ import profile3 from "/images/img/user2.png";
 
 import adCourse from "/images/img/advert.png";
 
+import errorBg from "/images/img/woman.png";
+
 export const assets = {
   playstore,
   userProfile,
@@ -47,6 +49,7 @@ export const assets = {
     homeHero,
     ctaImg,
     abtHero,
+    errorBg,
   },
 };
 
